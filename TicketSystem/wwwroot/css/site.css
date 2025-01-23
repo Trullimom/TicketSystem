@@ -29,3 +29,7 @@ a{
 button:hover{
     background-color: red;
 }
+
+.login{
+    text-align: right;
+}

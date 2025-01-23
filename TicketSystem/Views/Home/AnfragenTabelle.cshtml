@@ -21,7 +21,7 @@
                 <td>@anfrage.KundenName</td>
                 <td>@anfrage.MitarbeiterName</td>
                 <td>@anfrage.DeadLine</td>
-                <td>@anfrage.Erledigt</td>
+                <td><input type="checkbox" asp-for="@anfrage.Erledigt"/></td>
                 <td>@anfrage.Nachricht</td>
                 <td>@anfrage.Kommentar</td>
                 <td>@anfrage.Kommentar<a asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="">Kommentieren</a></td>
