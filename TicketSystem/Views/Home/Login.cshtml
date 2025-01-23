@@ -1,0 +1,8 @@
+@model Mitarbeiter
+
+<form asp-action="Login" asp-controller="Home" method="post">
+    
+    <input type="text" asp-for="Username" placeholder="Username">
+    <input type="password" asp-for="Password" placeholder="Password">
+    <button type="submit">Login</button>
+</form>
