@@ -9,16 +9,17 @@ namespace TicketSystem.Models
 
         public string Rolle { get; set; }
 
-        public string UserName { get; set; } = "abcd";
+        public string UserName { get; set; }
 
-        public string Passwort { get; set; } = "1234";
+        public string Passwort { get; set; }
 
-        //public string Tester { get; set; }
+        public static Dictionary<string, string> LoginDaten = new Dictionary<string, string>
+        {
+            { "admin", "1111"},
+            { "mitarbeiter", "2222"},
+            { "tester", "3333"}
 
-        //public string Mitarbeiter { get; set; }
-
-        //public string Admin { get; set; }
-
+        };
 
         public MitarbeiterDaten()
         {
