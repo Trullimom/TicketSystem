@@ -3,16 +3,9 @@
 
 <form asp-action="Kontakt" asp-controller="Home" method="post">
 
-    <input type="text" asp-for="KundenName" placeholder="Name">
+    <input type="text" asp-for="@Model.KundenName" placeholder="Name">
     <input type="text" asp-for="Email" placeholder="Email">
     <input type="text" asp-for="Telefon" placeholder="Telefon">
     <input type="text" asp-for="Nachricht" placeholder="Nachricht">
     <button type="submit">Senden</button>
-
-
-
-
-
-
-
 </form>

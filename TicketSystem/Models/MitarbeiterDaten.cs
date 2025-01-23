@@ -9,15 +9,15 @@ namespace TicketSystem.Models
 
         public string Rolle { get; set; }
 
-        public string  UserName { get; set; }
+        public string UserName { get; set; } = "abcd";
 
-        public int Passwort { get; set; }
+        public string Passwort { get; set; } = "1234";
 
-        public static string Tester { get; set; }
+        //public string Tester { get; set; }
 
-        public static string Mitarbeiter { get; set; }
+        //public string Mitarbeiter { get; set; }
 
-        public static string Admin { get; set; }
+        //public string Admin { get; set; }
 
 
         public MitarbeiterDaten()
@@ -25,19 +25,28 @@ namespace TicketSystem.Models
             Id = countId;
             countId++;
 
-            if (Rolle==Tester)
-            {
-                Console.WriteLine("hier ist der Tester");
-            }
-            else if(Rolle== Admin)
-            {
-                Console.WriteLine("hier ist der Admin ");
-            }else
-            {
-                Console.WriteLine("Hier ist ein Mitarbeiter");
-            }
-
-
+            //if (Rolle==Tester)
+            //{
+            //    Console.WriteLine("hier ist der Tester");
+            //}
+            //else if(Rolle== Admin)
+            //{
+            //    Console.WriteLine("hier ist der Admin ");
+            //}else
+            //{
+            //    Console.WriteLine("Hier ist ein Mitarbeiter");
+            //}
         }
+
+        public bool IstLoginKorrekt(string username, string pass)
+        {
+            if(UserName == username && Passwort == pass)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
     }
 }

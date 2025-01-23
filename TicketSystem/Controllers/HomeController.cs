@@ -17,16 +17,28 @@ namespace TicketSystem.Controllers
         {
             return View();
         }
-        //5555555455
-        public IActionResult Privacy()
+
+        [HttpGet]
+        public IActionResult Kontakt(Anfrage a)
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Kontakt(Anfrage a, int x)
+        {
+            return View("Bestätigen", a);
+        }
+        [HttpGet]
+        public IActionResult Login(MitarbeiterDaten m)
+        {
+            return View(m);
+        }
+        [HttpPost]
+        public IActionResult Login(MitarbeiterDaten m, int x)
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+
     }
 }

@@ -1,8 +1,16 @@
-@model Mitarbeiter
+@model MitarbeiterDaten
 
 <form asp-action="Login" asp-controller="Home" method="post">
     
-    <input type="text" asp-for="Username" placeholder="Username">
-    <input type="password" asp-for="Password" placeholder="Password">
+    <input type="text" asp-for="@Model.UserName" value="" placeholder="Username">
+    <input type="password" asp-for="@Model.Passwort"  placeholder="Password">
     <button type="submit">Login</button>
 </form>
+
+
+
+@if(Model.IstLoginKorrekt(Model.UserName, Model.Passwort)){
+
+}else{
+
+}
