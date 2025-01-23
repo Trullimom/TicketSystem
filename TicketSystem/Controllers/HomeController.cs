@@ -17,7 +17,7 @@ namespace TicketSystem.Controllers
         {
             return View();
         }
-
+        //5555555455
         public IActionResult Privacy()
         {
             return View();
