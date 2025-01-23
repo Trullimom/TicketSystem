@@ -9,7 +9,7 @@ namespace TicketSystem.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-       
+        MitarbeiterDaten mitarbeiterDaten = new MitarbeiterDaten();
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -45,20 +45,7 @@ namespace TicketSystem.Controllers
         bool IstRichtig;
         public IActionResult CheckLogin(MitarbeiterDaten m)
         {
-           
-            foreach(var daten in MitarbeiterDaten.LoginDaten)
-            {
-                if (m.UserName == daten.Key && m.Passwort == daten.Value)
-                {
-                    IstRichtig = true;
-                    break;
-                }
-                else
-                {
-                    IstRichtig = false;
-                }
-            }
-            if (IstRichtig)
+            if (mitarbeiterDaten.IstLoginKorrekt(m))
             {
                 return View("AnfragenTabelle");
             }

@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.Eventing.Reader;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
+using System.Collections;
+using System.Diagnostics.Eventing.Reader;
 
 namespace TicketSystem.Models
 {
@@ -39,11 +41,14 @@ namespace TicketSystem.Models
             //}
         }
 
-        public bool IstLoginKorrekt(string username, string pass)
+        public bool IstLoginKorrekt(MitarbeiterDaten m)
         {
-            if(UserName == username && Passwort == pass)
+            foreach(var daten in LoginDaten)
             {
-                return true;
+                if(daten.Key == m.UserName && daten.Value == m.Passwort)
+                {
+                    return true;
+                }
             }
             return false;
         }
