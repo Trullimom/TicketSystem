@@ -1,6 +1,31 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
+<h3>Alle Tickets:</h3>
+<table class="table table-bordered table-striped table-sm">
+    <thead>
+        <tr>
+            <th>TicketId </th>
+            <th>Kundenname</th>
+            <th>Mitarbeitername</th>
+            <th>Deadline</th>
+            <th>Status</th>
+            <th>Nachricht</th>
+            <th>Kommentar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Anfrage anfrage in AnfragenListe.anfragenListe)
+        {
 
-
-Anfragentabelle seite
+            <tr>
+                <td>@anfrage.Id</td>
+                <td>@anfrage.KundenName</td>
+                <td>@anfrage.MitarbeiterName</td>
+                <td>@anfrage.DeadLine</td>
+                <td>@anfrage.Erledigt</td>
+                <td>@anfrage.Nachricht</td>
+                <td>@anfrage.Kommentar</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Index">Zurück</a>

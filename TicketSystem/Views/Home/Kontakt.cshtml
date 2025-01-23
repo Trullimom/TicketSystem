@@ -2,18 +2,32 @@
 
 <form asp-action="Kontakt" asp-controller="Home" method="post" class="contact-form">
     <div class="form-group">
-        <input type="text" asp-for="@Model.KundenName" placeholder="Name" class="form-control">
+        <label>Firmen Name: </label>
+        <input type="text" asp-for="@Model.KundenName" placeholder="Firmen Name" class="form-control">
     </div>
 
     <div class="form-group">
+        <label>Mitarbeiter Name: </label>
+        <input type="text" asp-for="@Model.MitarbeiterName" placeholder="Name" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Email: </label>
         <input type="text" asp-for="Email" placeholder="Email" class="form-control">
     </div>
 
     <div class="form-group">
+        <label>Telefonnummer: </label>
         <input type="text" asp-for="Telefon" placeholder="Telefon" class="form-control">
     </div>
 
     <div class="form-group">
+        <label>Wunschtermin: </label>
+        <input type="date" asp-for="DeadLine" placeholder="Wunschtermin" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Ihre Nachricht an uns: </label>
         <textarea asp-for="Nachricht" placeholder="Nachricht" class="form-control" rows="4" style="resize: vertical;"></textarea>
     </div>
 
