@@ -5,10 +5,32 @@
 }
 @model Anfrage
 
-<p>KundeName: @Model.KundenName</p>
-<p>Email von Kunde: @Model.Email</p>
-<p>Telefon: @Model.Telefon</p>
-<p>@Model.Nachricht</p>
+<div class="container mt-4">
+    <table class="table table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th class="text-center">Kategorie</th>
+                <th class="text-center">Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td>@Model.KundenName</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>@Model.Email</td>
+            </tr>
+            <tr>
+                <td>Telefon</td>
+                <td>@Model.Telefon</td>
+            </tr>
+            <tr>
+                <td>Nachricht</td>
+                <td>@Model.Nachricht</td>
+            </tr>
+        </tbody>
+    </table>
 
-<button><a asp-action="Kontakt">Neue Anfrage stellen</a></button>
-<a asp-action="Index">Zurück</a>
+    <button><a asp-action="">PLATZHALTER</a></button>
