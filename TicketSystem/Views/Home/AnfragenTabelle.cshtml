@@ -1,5 +1,4 @@
-﻿
-<h3>Alle Tickets:</h3>
+﻿<h3>Alle Tickets:</h3>
 <table class="table table-bordered table-striped table-sm">
     <thead>
         <tr>
@@ -10,6 +9,7 @@
             <th>Status</th>
             <th>Nachricht</th>
             <th>Kommentar</th>
+            <th>Kommentar hinzufügen</th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +24,7 @@
                 <td>@anfrage.Erledigt</td>
                 <td>@anfrage.Nachricht</td>
                 <td>@anfrage.Kommentar</td>
+                <td>@anfrage.Kommentar<a asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="">Kommentieren</a></td>
             </tr>
         }
     </tbody>

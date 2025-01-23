@@ -21,28 +21,22 @@ namespace TicketSystem.Controllers
         }
 
         [HttpGet]
-        public IActionResult Kontakt(Anfrage a)
+        public IActionResult Kontakt()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Kontakt(Anfrage a, int x)
+        public IActionResult Kontakt(Anfrage a)
         {
             AnfragenListe.anfragenListe.Add(a);
             return View("Bestätigen", a);
         }
         [HttpGet]
-        public IActionResult Login(MitarbeiterDaten m)
-        {
-            return View(m);
-        }
-        [HttpPost]
-        public IActionResult Login(MitarbeiterDaten m, int x)
+        public IActionResult Login()
         {
             return View();
         }
-
-        bool IstRichtig;
+        [HttpPost]
         public IActionResult CheckLogin(MitarbeiterDaten m)
         {
             if (mitarbeiterDaten.IstLoginKorrekt(m))
@@ -57,6 +51,12 @@ namespace TicketSystem.Controllers
 
         public IActionResult AnfragenTabelle()
         {
+            return View();
+        }
+
+        public IActionResult Kommentar(int Id)
+        {
+            Console.WriteLine(Id);
             return View();
         }
 
