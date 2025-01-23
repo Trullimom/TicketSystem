@@ -7,6 +7,9 @@
         public int Id { get; set; }
 
         public string KundenName { get; set; }
+        public string Email { get; set; }
+        public string Telefon { get; set; }
+        public string Nachricht { get; set; }
 
         public DateTime Datum { get; set; }
 
@@ -15,7 +18,7 @@
         public DateTime DeadLine { get; set; }
 
         public string Kommentar { get; set; }
-        public int Priorität { get; set; }
+
 
         public Anfrage()  // das ist der Konstruktor 
         {
