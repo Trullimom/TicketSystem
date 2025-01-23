@@ -66,3 +66,38 @@ C:\Users\Nicht von dir\Documents\GitHub\TicketSystem\TicketSystem\obj\Debug\net8
 C:\Users\Nicht von dir\Documents\GitHub\TicketSystem\TicketSystem\obj\Debug\net8.0\TicketSystem.pdb
 C:\Users\Nicht von dir\Documents\GitHub\TicketSystem\TicketSystem\obj\Debug\net8.0\TicketSystem.genruntimeconfig.cache
 C:\Users\Nicht von dir\Documents\GitHub\TicketSystem\TicketSystem\obj\Debug\net8.0\ref\TicketSystem.dll
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\TicketSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\TicketSystem.AssemblyInfoInputs.cache
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\TicketSystem.AssemblyInfo.cs
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\TicketSystem.csproj.CoreCompileInputs.cache
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\TicketSystem.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\TicketSystem.RazorAssemblyInfo.cache
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\TicketSystem.RazorAssemblyInfo.cs
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\TicketSystem.sourcelink.json
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\TicketSystem.dll
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\refint\TicketSystem.dll
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\TicketSystem.pdb
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\bin\Debug\net8.0\appsettings.json
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\bin\Debug\net8.0\TicketSystem.staticwebassets.runtime.json
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\bin\Debug\net8.0\TicketSystem.staticwebassets.endpoints.json
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\bin\Debug\net8.0\TicketSystem.exe
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\bin\Debug\net8.0\TicketSystem.deps.json
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\bin\Debug\net8.0\TicketSystem.runtimeconfig.json
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\bin\Debug\net8.0\TicketSystem.dll
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\bin\Debug\net8.0\TicketSystem.pdb
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\scopedcss\bundle\TicketSystem.styles.css
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\scopedcss\projectbundle\TicketSystem.bundle.scp.css
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\staticwebassets\msbuild.TicketSystem.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\staticwebassets\msbuild.TicketSystem.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\staticwebassets\msbuild.build.TicketSystem.props
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.TicketSystem.props
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.TicketSystem.props
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\TicketSystem.genruntimeconfig.cache
+C:\Users\Jihye\Desktop\TicketSystem_23.01.25\TicketSystem\obj\Debug\net8.0\ref\TicketSystem.dll
