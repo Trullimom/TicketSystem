@@ -62,7 +62,6 @@ namespace TicketSystem.Controllers
             }
         }
 
-
         public IActionResult AnfragenTabelle()
         {
             return View(_ticketsystemRepository.GetAll());
@@ -87,9 +86,10 @@ namespace TicketSystem.Controllers
         [HttpPost]
         public IActionResult Kommentar(int Id, string kommentar)
         {
-            //Anfrage anfrage = AnfragenListe.anfragenListe.Find(x => x.Id == Id);
-            //anfrage.Kommentar = kommentar;
-            return View();
+            Anfrage anfrage = _ticketsystemRepository.GetAll().Find(x => x.Id == Id);
+            anfrage.Kommentar = kommentar;
+            _ticketsystemRepository.Update(anfrage);
+            return View(_ticketsystemRepository.GetAll());
         }
     }
 }
