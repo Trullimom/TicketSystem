@@ -4,9 +4,7 @@ namespace TicketSystem.Models
 {
     public class AnfragenListe : ITicketsystemRepository
     {
-        public static List<Anfrage> anfragenListe { get; set; } = new List<Anfrage>();
- 
-
+        //public static List<Anfrage> anfragenListe { get; set; } = new List<Anfrage>();
 
         private readonly AnwendungsDbContext _context;  // Neue variabel von Datenbank
         public AnfragenListe(AnwendungsDbContext context)  // Konstruktor 

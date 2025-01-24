@@ -27,20 +27,23 @@ namespace TicketSystem.Models
         {
             Id = countId;
             countId++;
-
-            //if (Rolle==Tester)
-            //{
-            //    Console.WriteLine("hier ist der Tester");
-            //}
-            //else if(Rolle== Admin)
-            //{
-            //    Console.WriteLine("hier ist der Admin ");
-            //}else
-            //{
-            //    Console.WriteLine("Hier ist ein Mitarbeiter");
-            //}
         }
 
+        public string CheckRolle(MitarbeiterDaten m)
+        {
+            if(m.UserName == "admin")
+            {
+                Rolle = "admin";
+            }else if(m.UserName == "mitarbeiter")
+            {
+                Rolle = "mitarbeiter";
+            }
+            else
+            {
+                Rolle = "tester";
+            }
+            return Rolle;
+        }
         public bool IstLoginKorrekt(MitarbeiterDaten m)
         {
             foreach(var daten in LoginDaten)

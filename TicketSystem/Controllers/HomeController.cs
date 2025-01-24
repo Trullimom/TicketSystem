@@ -2,6 +2,7 @@ using System.Collections;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TicketSystem.Models;
+using TicketSystem.Models.Data;
 
 namespace TicketSystem.Controllers
 {
@@ -9,10 +10,13 @@ namespace TicketSystem.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        private ITicketsystemRepository _ticketsystemRepository;
         MitarbeiterDaten mitarbeiterDaten = new MitarbeiterDaten();
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(ILogger<HomeController> logger, ITicketsystemRepository tsRepo)
         {
             _logger = logger;
+            _ticketsystemRepository = tsRepo;
         }
 
         public IActionResult Index()
@@ -28,7 +32,8 @@ namespace TicketSystem.Controllers
         [HttpPost]
         public IActionResult Kontakt(Anfrage a)
         {
-            AnfragenListe.anfragenListe.Add(a);
+            //AnfragenListe.anfragenListe.Add(a);
+            _ticketsystemRepository.Add(a);
             return View("Bestätigen", a);
         }
         [HttpGet]
@@ -39,9 +44,17 @@ namespace TicketSystem.Controllers
         [HttpPost]
         public IActionResult CheckLogin(MitarbeiterDaten m)
         {
+            string view = "";
             if (mitarbeiterDaten.IstLoginKorrekt(m))
             {
-                return View("AnfragenTabelle");
+                if(mitarbeiterDaten.CheckRolle(m) == "admin")
+                {
+                    view = "Admin";
+                }else if(mitarbeiterDaten.CheckRolle(m) == "mitarbeiter")
+                {
+                    view = "AnfragenTabelle";
+                }
+                return View(view, _ticketsystemRepository.GetAll());
             }
             else
             {
@@ -49,20 +62,21 @@ namespace TicketSystem.Controllers
             }
         }
 
+
         public IActionResult AnfragenTabelle()
         {
-            return View();
+            return View(_ticketsystemRepository.GetAll());
         }
 
-        public IActionResult Erledigt(int id)
-        {
-            var anfrage = AnfragenListe.anfragenListe.FirstOrDefault(a => a.Id == id);
-            if (anfrage != null)
-            {
-                anfrage.Erledigt = true;
-            }
-            return View("AnfragenTabelle", AnfragenListe.anfragenListe);
-        }
+        //public IActionResult Erledigt(int id)
+        //{
+        //    //var anfrage = AnfragenListe.anfragenListe.FirstOrDefault(a => a.Id == id);
+        //    //if (anfrage != null)
+        //    //{
+        //    //    anfrage.Erledigt = true;
+        //    //}
+        //    //return View("AnfragenTabelle", AnfragenListe.anfragenListe);
+        //}
 
         [HttpGet]
         public IActionResult Kommentar(int Id)
@@ -73,8 +87,8 @@ namespace TicketSystem.Controllers
         [HttpPost]
         public IActionResult Kommentar(int Id, string kommentar)
         {
-            Anfrage anfrage = AnfragenListe.anfragenListe.Find(x => x.Id == Id);
-            anfrage.Kommentar = kommentar;
+            //Anfrage anfrage = AnfragenListe.anfragenListe.Find(x => x.Id == Id);
+            //anfrage.Kommentar = kommentar;
             return View();
         }
     }
