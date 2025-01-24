@@ -1,18 +1,52 @@
-﻿namespace TicketSystem.Models
+﻿using TicketSystem.Models.Data;
+
+namespace TicketSystem.Models
 {
-    public class AnfragenListe
+    public class AnfragenListe : ITicketsystemRepository
     {
-        public static List<Anfrage> anfragenListe { get; set; } = new List<Anfrage>()
+        public static List<Anfrage> anfragenListe { get; set; } = new List<Anfrage>();
+ 
+
+
+        private readonly AnwendungsDbContext _context;  // Neue variabel von Datenbank
+        public AnfragenListe(AnwendungsDbContext context)  // Konstruktor 
         {
-            new Anfrage{ KundenName= "Kunde1", MitarbeiterName = "Andre", DeadLine =new DateTime(2025,01,23), Erledigt= false, Kommentar= "blablabla" },
-            new Anfrage{ KundenName= "Kunde2", MitarbeiterName = "Jihye", DeadLine =new DateTime(2025,01,23), Erledigt= true, Kommentar= "blablabla" },
-            new Anfrage{ KundenName= "Kunde3", MitarbeiterName = "Marcel", DeadLine =new DateTime(2025,01,23), Erledigt= false, Kommentar= "blablabla" },
-            new Anfrage{ KundenName= "Kunde4", MitarbeiterName = "Abdullah", DeadLine =new DateTime(2025,01,23), Erledigt= false, Kommentar= "blablabla" },
+            _context = context;
+        }
 
+        public List<Anfrage> GetAll()
+        {
+            return _context.AnfrageDaten.ToList();
+        }
 
-        };
+        public Anfrage GetById(int id)
+        {
+            return _context.AnfrageDaten.Find(id);
+        }
+        public void Add(Anfrage anfrage)
+        {
+            _context.AnfrageDaten.Add(anfrage);
+            _context.SaveChanges();
+        }
+        public void Update(Anfrage anfrage)
+        {
+            _context.Update(anfrage);
+            _context.SaveChanges();
+        }
 
-        
+        public void Delete(int id)
+        {
+            var anfrage = _context.AnfrageDaten.Find(id);
+            if (anfrage != null)
+            {
+                _context.AnfrageDaten.Remove(anfrage);
+                _context.SaveChanges();
+            }
+        }
 
+        public bool Exists(int id)
+        {
+            return _context.AnfrageDaten.Any(e => e.Id == id);
+        }
     }
 }

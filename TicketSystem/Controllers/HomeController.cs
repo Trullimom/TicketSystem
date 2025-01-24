@@ -54,11 +54,29 @@ namespace TicketSystem.Controllers
             return View();
         }
 
-        public IActionResult Kommentar(int Id)
+        public IActionResult Erledigt(int id)
         {
-            Console.WriteLine(Id);
-            return View();
+            var anfrage = AnfragenListe.anfragenListe.FirstOrDefault(a => a.Id == id);
+            if (anfrage != null)
+            {
+                anfrage.Erledigt = true;
+            }
+            return View("AnfragenTabelle", AnfragenListe.anfragenListe);
         }
 
+        [HttpGet]
+        public IActionResult Kommentar(int Id)
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public IActionResult Kommentar(int Id, string kommentar)
+        {
+            Anfrage anfrage = AnfragenListe.anfragenListe.Find(x => x.Id == Id);
+            anfrage.Kommentar = kommentar;
+            return View();
+        }
     }
 }
+
