@@ -20,7 +20,6 @@
         <h1>Admin Seite</h1>
         @foreach (Anfrage anfrage in Model)
         {
-
             <tr>
                 <td>@anfrage.Id</td>
                 <td>@anfrage.KundenName</td>
@@ -49,7 +48,11 @@
                 <td>@anfrage.Nachricht</td>
                 <td>@anfrage.Kommentar</td>
                 <td><a asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="">Kommentieren</a></td>
-                <td><button>Löschen</button></td>
+                <form asp-action="Löschen">
+                    <input type="hidden" name="id" value="@anfrage.Id" />
+                    <td><button>Löschen</button></td>
+                </form>
+               
             </tr>
         }
     </tbody>

@@ -99,6 +99,13 @@ namespace TicketSystem.Controllers
             _ticketsystemRepository.Update(anfrage);
             return View(_ticketsystemRepository.GetAll());
         }
+
+        [HttpPost]
+        public IActionResult Löschen(int id)
+        {
+            _ticketsystemRepository.Delete(id);
+            return View("Admin", _ticketsystemRepository.GetAll());
+        }
     }
 }
 
