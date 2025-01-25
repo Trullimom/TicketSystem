@@ -70,6 +70,10 @@ namespace TicketSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Nachname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Passwort")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -83,6 +87,10 @@ namespace TicketSystem.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ViewName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Vorname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

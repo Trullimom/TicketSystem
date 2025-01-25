@@ -7,8 +7,8 @@ namespace TicketSystem.Models
 {
     public class MitarbeiterDaten 
     {
-        public static int countId = 0;
-        public int  Id { get; set; }
+
+        public int Id { get; set; }
 
         public string Rolle { get; set; }
 
@@ -18,14 +18,10 @@ namespace TicketSystem.Models
 
         public string ViewName { get; set; } = String.Empty;
 
-        //public static Dictionary<string, string> LoginDaten = new Dictionary<string, string>
-        //{
-        //    { "admin", "1111"},
-        //    { "mitarbeiter", "2222"},
-        //    { "tester", "3333"}
+        public string Vorname { get; set; } = String.Empty;
 
-        //};
-       
+        public string Nachname { get; set; } = String.Empty;
+
         public MitarbeiterDaten()
         {
             

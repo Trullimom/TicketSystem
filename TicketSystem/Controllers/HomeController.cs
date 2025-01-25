@@ -102,6 +102,25 @@ namespace TicketSystem.Controllers
             _ticketsystemRepository.Delete(id);
             return View("Admin", _ticketsystemRepository.GetAll());
         }
+
+        public IActionResult MitarbeiterTabelle()
+        {
+            return View(_loginDatenRepository.GetAll());
+        }
+        [HttpPost]
+        public IActionResult DeleteMitarbeiter(int id)
+        {
+            _loginDatenRepository.Delete(id);
+            return View("MitarbeiterTabelle", _loginDatenRepository.GetAll());
+
+        }
+
+        //TODO
+        //public IActionResult AddMitarbeiter(MitarbeiterDaten m)
+        //{
+        //    _loginDatenRepository.Add(m);
+        //     return View("MitarbeiterTabelle", _loginDatenRepository.GetAll());
+        //}
     }
 }
 

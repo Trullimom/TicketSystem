@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TicketSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class _1 : Migration
+    public partial class datenbankInitialize : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,13 +23,31 @@ namespace TicketSystem.Migrations
                     Nachricht = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MitarbeiterName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Datum = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Erledigt = table.Column<bool>(type: "bit", nullable: true),
+                    Erledigt = table.Column<bool>(type: "bit", nullable: false),
                     DeadLine = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Kommentar = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AnfrageDaten", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LoginDaten",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Rolle = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Passwort = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ViewName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Vorname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Nachname = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LoginDaten", x => x.Id);
                 });
         }
 
@@ -38,6 +56,9 @@ namespace TicketSystem.Migrations
         {
             migrationBuilder.DropTable(
                 name: "AnfrageDaten");
+
+            migrationBuilder.DropTable(
+                name: "LoginDaten");
         }
     }
 }

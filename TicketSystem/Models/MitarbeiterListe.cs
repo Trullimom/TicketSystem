@@ -13,8 +13,9 @@ namespace TicketSystem.Models
 
         public string CheckRolle(MitarbeiterDaten m)
         {
-            if (m.Rolle == "Admin")
+            if (m.UserName == "admin")
             {
+                m.Rolle = "Admin";
                 m.ViewName = "Admin";
             }
             else

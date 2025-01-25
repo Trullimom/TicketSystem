@@ -1,0 +1,36 @@
+﻿@model List<MitarbeiterDaten>
+
+<h3>Alle Mitarbeiter Daten:</h3>
+<table class="table table-bordered table-striped table-sm">
+    <thead>
+        <tr>
+            <th>Mitarbeiter ID</th>
+            <th>Rolle</th>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>Username</th>
+            <th>Passwort</th>
+            <th>Löschen</th>
+        </tr>
+    </thead>
+    <tbody>
+        <h1>Admin Seite</h1>
+        @foreach (MitarbeiterDaten mitarbeiter in Model)
+        {
+            <tr>
+                <td>@mitarbeiter.Id</td>
+                <td>@mitarbeiter.Rolle</td>
+                <td>@mitarbeiter.Vorname</td>
+                <td>@mitarbeiter.Nachname</td>
+                <td>@mitarbeiter.UserName</td>
+                <td>@mitarbeiter.Passwort</td>
+                <form asp-action="DeleteMitarbeiter"> 
+                    <input type="hidden" asp-for="@mitarbeiter.Id" />
+                    <td><button>Löschen</button></td>
+                </form>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button><a asp-action="Index">Zurück</a></button>
