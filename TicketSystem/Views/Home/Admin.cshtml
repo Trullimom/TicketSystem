@@ -9,7 +9,9 @@
             <th>Mitarbeitername</th>
             <th>Deadline</th>
             <th>Status</th>
+            <th></th>
             <th>Nachricht</th>
+            <th>Wer arbeitet?</th>
             <th>Kommentar</th>
             <th>Kommentar hinzufügen</th>
             <th>Löschen</th>
@@ -46,12 +48,14 @@
                 }               
                 </form>
                 <td>@anfrage.Nachricht</td>
+                <td class="text-center">List von Mitarbeiter hinzufügen</td>
                 <td>@anfrage.Kommentar</td>
                 <td><a asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="">Kommentieren</a></td>
                 <form asp-action="Löschen">
                     <input type="hidden" name="id" value="@anfrage.Id" />
                     <td><button>Löschen</button></td>
-                </form>               
+                </form>
+               
             </tr>
         }
     </tbody>
@@ -59,3 +63,6 @@
 
 <button><a asp-action="Index">Zurück</a></button>
 <button><a asp-action="MitarbeiterTabelle">MA Tabelle</a></button>
+<button><a asp-action="Kontakt">Anfrage Hinzufügen</a></button>
+
+

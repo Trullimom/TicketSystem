@@ -12,8 +12,8 @@ using TicketSystem.Models.Data;
 namespace TicketSystem.Migrations
 {
     [DbContext(typeof(AnwendungsDbContext))]
-    [Migration("20250125122141_datenbankInitialize")]
-    partial class datenbankInitialize
+    [Migration("20250125203159_tabelleupgrade")]
+    partial class tabelleupgrade
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

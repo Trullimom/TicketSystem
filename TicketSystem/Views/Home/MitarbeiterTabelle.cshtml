@@ -24,8 +24,8 @@
                 <td>@mitarbeiter.Nachname</td>
                 <td>@mitarbeiter.UserName</td>
                 <td>@mitarbeiter.Passwort</td>
-                <form asp-action="DeleteMitarbeiter"> 
-                    <input type="hidden" asp-for="@mitarbeiter.Id" />
+                <form asp-action="DeleteMitarbeiter">
+                    <input type="hidden" name="id" value="@mitarbeiter.Id"  />
                     <td><button>Löschen</button></td>
                 </form>
             </tr>

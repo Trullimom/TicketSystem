@@ -13,10 +13,7 @@
         public DateTime? DeadLine { get; set; }
         public string? Kommentar { get; set; }
 
-        public Anfrage()  
-        {
-            
-        }
+        
     }
 }
 

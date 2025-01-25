@@ -10,10 +10,14 @@ namespace TicketSystem.Models
         {
             _context = context;
         }
+        public List<MitarbeiterDaten> GetAll()
+        {
+            return _context.LoginDaten.ToList();
+        }
 
         public string CheckRolle(MitarbeiterDaten m)
         {
-            if (m.UserName == "admin")
+            if (m.UserName.StartsWith("admin"))
             {
                 m.Rolle = "Admin";
                 m.ViewName = "Admin";
@@ -36,7 +40,6 @@ namespace TicketSystem.Models
             return false;
         }
 
-
         public void Add(MitarbeiterDaten md)
         {
             _context.LoginDaten.Add(md);
@@ -45,7 +48,7 @@ namespace TicketSystem.Models
 
         public void Delete(int id)
         {
-            MitarbeiterDaten mitarbeiter = _context.LoginDaten.Find(id);
+            var mitarbeiter = _context.LoginDaten.Find(id);
             if (mitarbeiter != null)
             {
                 _context.LoginDaten.Remove(mitarbeiter);
@@ -58,9 +61,10 @@ namespace TicketSystem.Models
             return _context.LoginDaten.Any(m => m.Id == id);
         }
 
-        public List<MitarbeiterDaten> GetAll()
+        public void Update(MitarbeiterDaten mitarbeiter)
         {
-            return _context.LoginDaten.ToList();
+            _context.Update(mitarbeiter);
+            _context.SaveChanges();
         }
 
         public MitarbeiterDaten GetById(int id)
@@ -68,7 +72,9 @@ namespace TicketSystem.Models
             return _context.LoginDaten.Find(id);
         }
 
-       
+     
+
+
 
     }
     }
