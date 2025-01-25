@@ -11,12 +11,14 @@ namespace TicketSystem.Controllers
         private readonly ILogger<HomeController> _logger;
 
         private ITicketsystemRepository _ticketsystemRepository;
-        MitarbeiterDaten mitarbeiterDaten = new MitarbeiterDaten();
+        //MitarbeiterDaten mitarbeiterDaten = new MitarbeiterDaten();
+        private ILoginDatenRepository _loginDatenRepository;
 
-        public HomeController(ILogger<HomeController> logger, ITicketsystemRepository tsRepo)
+        public HomeController(ILogger<HomeController> logger, ITicketsystemRepository tsRepo, ILoginDatenRepository ldRepo)
         {
             _logger = logger;
             _ticketsystemRepository = tsRepo;
+            _loginDatenRepository = ldRepo;
         }
 
         public IActionResult Index()
@@ -43,16 +45,10 @@ namespace TicketSystem.Controllers
         [HttpPost]
         public IActionResult CheckLogin(MitarbeiterDaten m)
         {
-            string view = "";
-            if (mitarbeiterDaten.IstLoginKorrekt(m))
+            
+            if (_loginDatenRepository.IstLoginKorrekt(m))
             {
-                if(mitarbeiterDaten.CheckRolle(m) == "admin")
-                {
-                    view = "Admin";
-                }else if(mitarbeiterDaten.CheckRolle(m) == "mitarbeiter")
-                {
-                    view = "AnfragenTabelle";
-                }
+                string view = _loginDatenRepository.CheckRolle(m);
                 return View(view, _ticketsystemRepository.GetAll());
             }
             else

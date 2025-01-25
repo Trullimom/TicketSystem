@@ -11,9 +11,12 @@ namespace TicketSystem
         {
             var builder = WebApplication.CreateBuilder(args);
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+            
             builder.Services.AddDbContext<AnwendungsDbContext>(options => options.UseSqlServer(connectionString));
+            
 
             builder.Services.AddScoped<ITicketsystemRepository, AnfragenListe>();
+            builder.Services.AddScoped<ILoginDatenRepository, MitarbeiterListe>();
 
 
             // Add services to the container.
@@ -29,7 +32,13 @@ namespace TicketSystem
                 var context = services.GetService<AnwendungsDbContext>();
 
                 DbInitializer.Initialize(context);
+                LoginDbInitializer.Initialize(context);
             }
+
+           
+
+                
+            
 
             // Test 
             // Configure the HTTP request pipeline.
