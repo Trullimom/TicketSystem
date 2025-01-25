@@ -32,7 +32,6 @@ namespace TicketSystem.Controllers
         [HttpPost]
         public IActionResult Kontakt(Anfrage a)
         {
-            //AnfragenListe.anfragenListe.Add(a);
             _ticketsystemRepository.Add(a);
             return View("Bestätigen", a);
         }
@@ -67,18 +66,27 @@ namespace TicketSystem.Controllers
             return View(_ticketsystemRepository.GetAll());
         }
 
-        //public IActionResult Erledigt(int id)
-        //{
-        //    //var anfrage = AnfragenListe.anfragenListe.FirstOrDefault(a => a.Id == id);
-        //    //if (anfrage != null)
-        //    //{
-        //    //    anfrage.Erledigt = true;
-        //    //}
-        //    //return View("AnfragenTabelle", AnfragenListe.anfragenListe);
-        //}
+        public IActionResult Erledigt(int id)
+        {
+            Anfrage anfrage = _ticketsystemRepository.GetAll().FirstOrDefault(a => a.Id == id);
+            if (anfrage != null)
+            {
+                if (anfrage.Erledigt)
+                {
+                    anfrage.Erledigt = false;
+                }
+                else
+                {
+                    anfrage.Erledigt = true;
+                }
+                
+                _ticketsystemRepository.Update(anfrage);
+            }
+            return View("AnfragenTabelle", _ticketsystemRepository.GetAll());
+        }
 
         [HttpGet]
-        public IActionResult Kommentar(int Id)
+        public IActionResult Kommentar()
         {
             return View();
         }

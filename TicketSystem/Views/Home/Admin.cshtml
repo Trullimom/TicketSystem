@@ -26,7 +26,26 @@
                 <td>@anfrage.KundenName</td>
                 <td>@anfrage.MitarbeiterName</td>
                 <td>@anfrage.DeadLine</td>
-                <td>@anfrage.Erledigt</td>
+                @if (anfrage.Erledigt == true)
+                {
+                    <td>erledigt</td>
+                }
+                else
+                {
+                    <td>nicht erledigt</td>
+                }
+                <form asp-action="Erledigt" method="post">
+                    <input type="hidden" name="id" value="@anfrage.Id" />
+                @if (anfrage.Erledigt == true){
+                    <td>
+                        <button type="submit">zurücksetzen</button>
+                    </td>
+                }else{
+                    <td>
+                        <button type="submit">Erledigt markieren</button>
+                    </td>
+                }               
+                </form>
                 <td>@anfrage.Nachricht</td>
                 <td>@anfrage.Kommentar</td>
                 <td><a asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="">Kommentieren</a></td>

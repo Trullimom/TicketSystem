@@ -1,45 +1,58 @@
 ﻿@model List<Anfrage>
 
-
 <h3>Alle Tickets:</h3>
 <table class="table table-bordered table-striped table-sm">
-    <thead>
-        <tr>
-            <th class="text-center">TicketId </th>
-            <th class="text-center">Kundenname</th>
-            <th class="text-center">Mitarbeitername</th>
-            <th class="text-center">Deadline</th>
-            <th class="text-center">Status</th>
-            <th class="text-center">Nachricht</th>
-            <th class="text-center">Kommentar</th>
-            <th class="text-center">Kommentar hinzufügen</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (Anfrage anfrage in Model)
-        {
-            <tr>
-                <td>@anfrage.Id</td>
-                <td>@anfrage.KundenName</td>
-                <td>@anfrage.MitarbeiterName</td>
-                <td>@anfrage.DeadLine</td>
-                @if(anfrage.Erledigt == true){  
-                    <td>erledigt</td>
-                }else{
-                    <td>nicht erledigt</td>
-                }
-                <form asp-action="Erledigt" method="post">
-                    <input type="hidden" name="id" value="@anfrage.Id" />
-                <td>
-                    <button type="submit">Erledigt</button>
-                </td>
-                </form>
-                <td>@anfrage.Nachricht</td>
-                <td>@anfrage.Kommentar</td>
-                <td><a asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="">Kommentieren</a></td>
-            </tr>
-        }
-    </tbody>
+	<thead>
+		<tr>
+			<th class="text-center">TicketId </th>
+			<th class="text-center">Kundenname</th>
+			<th class="text-center">Mitarbeitername</th>
+			<th class="text-center">Deadline</th>
+			<th class="text-center">Status</th>
+			<th></th>
+			<th class="text-center">Nachricht</th>
+			<th class="text-center">Kommentar</th>
+			<th class="text-center">Kommentar hinzufügen</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (Anfrage anfrage in Model)
+		{
+			<tr>
+				<td>@anfrage.Id</td>
+				<td>@anfrage.KundenName</td>
+				<td>@anfrage.MitarbeiterName</td>
+				<td>@anfrage.DeadLine</td>
+				
+					@if (anfrage.Erledigt == true)
+					{
+					<td>erledigt</td>
+					}
+					else
+					{
+					<td>nicht erledigt</td>
+					}
+				<form asp-action="Erledigt" method="post">
+				<input type="hidden" name="id" value="@anfrage.Id" />
+					@if (anfrage.Erledigt == true)
+					{
+					<td>
+						<button type="submit">zurücksetzen</button>
+					</td>
+					}
+					else
+					{
+					<td>
+						<button type="submit">Erledigt markieren</button>
+					</td>
+					}
+				</form>
+				<td>@anfrage.Nachricht</td>
+				<td>@anfrage.Kommentar</td>
+				<td><a asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="">Kommentieren</a></td>
+			</tr>
+		}
+	</tbody>
 </table>
 
 <button><a asp-action="Index">Zurück</a></button>
