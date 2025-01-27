@@ -3,25 +3,29 @@
 }
 @model List<MitarbeiterDaten>
 
-<h3>Alle Mitarbeiter Daten:</h3>
+<div class="d-flex justify-content-between align-items-center ">
+    <h3>Alle Mitarbeiter Daten:</h3>
+    <h1>Admin Seite</h1>
+</div>
+
 <table class="table table-bordered table-striped table-sm">
     <thead>
         <tr>
-            <th>Mitarbeiter ID</th>
-            <th>Rolle</th>
-            <th>Vorname</th>
-            <th>Nachname</th>
-            <th>Username</th>
-            <th>Passwort</th>
-            <th>Löschen</th>
+            <th class="text-center" style="width: 75px;">M ID</th>
+            <th class="text-center">Rolle</th>
+            <th class="text-center">Vorname</th>
+            <th class="text-center">Nachname</th>
+            <th class="text-center">Username</th>
+            <th class="text-center">Passwort</th>
+            <th class="text-center" style="width: 75px;">Löschen</th>
         </tr>
     </thead>
     <tbody>
-        <h1>Admin Seite</h1>
+        @* <h1>Admin Seite</h1> *@
         @foreach (MitarbeiterDaten mitarbeiter in Model)
         {
             <tr>
-                <td>@mitarbeiter.Id</td>
+                <td class="text-center">@mitarbeiter.Id</td>
                 <td>@mitarbeiter.Rolle</td>
                 <td>@mitarbeiter.Vorname</td>
                 <td>@mitarbeiter.Nachname</td>
@@ -29,12 +33,12 @@
                 <td>@mitarbeiter.Passwort</td>
                 <form asp-action="DeleteMitarbeiter">
                     <input type="hidden" name="id" value="@mitarbeiter.Id" />
-                <td><button>Löschen</button></td>
+                <td><button class="btn btn-danger w-70 h-100">Löschen</button></td>
                 </form>
             </tr>
         }
     </tbody>
 </table>
 
-<button><a class="text-light" asp-action="Index">Home</a></button>
-<button><a class="text-light" asp-action="AddMitarbeiter">Mitarbeiter hinzufügen</a></button>
+<button class="btn btn-primary"><a class="text-light" asp-action="Index">Home</a></button>
+<button class="btn btn-primary"><a class="text-light" asp-action="AddMitarbeiter">Mitarbeiter hinzufügen</a></button>

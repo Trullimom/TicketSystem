@@ -1,20 +1,34 @@
-﻿
-@{
+﻿@{
     Layout = "_Eingeloggt";
 }
 
 @model MitarbeiterDaten
 
 <form asp-action="AddMitarbeiter" method="post" class="contact-form">
-    <label>Rolle</label>
-    <input asp-for="@Model.Rolle"/>
-    <label>Vorname</label>
-    <input asp-for="@Model.Vorname" />
-    <label>Nachname</label>
-    <input asp-for="@Model.Nachname" />
-    <label>Username</label>
-    <input asp-for="@Model.UserName" />
-    <label>Passwort</label>
-    <input asp-for="@Model.Passwort" />
-    <button class="btn btn-primary">Bestätigen</button>
+    <div class="form-group">
+        <label><strong>Rolle: </strong></label>
+        <input asp-for="@Model.Rolle" class="form-control bg-light" />
+    </div>
+
+    <div class="form-group">
+        <label><strong>Vorname: </strong></label>
+        <input asp-for="@Model.Vorname" class="form-control bg-light" />
+    </div>
+
+    <div class="form-group">
+        <label><strong>Nachname: </strong></label>
+        <input asp-for="@Model.Nachname" class="form-control bg-light" />
+    </div>
+
+    <div class="form-group">
+        <label><strong>Username: </strong></label>
+        <input asp-for="@Model.UserName" class="form-control bg-light" />
+    </div>
+
+    <div class="form-group">
+        <label><strong>Passwort: </strong></label>
+        <input asp-for="@Model.Passwort" class="form-control bg-light" />
+    </div>
+
+    <button type="submit" class="btn btn-secondary mt-3">Bestätigen</button>
 </form>

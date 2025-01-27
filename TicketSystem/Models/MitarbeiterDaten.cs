@@ -7,7 +7,7 @@ namespace TicketSystem.Models
 {
     public class MitarbeiterDaten 
     {
-
+        //TODO  Validation 
         public int Id { get; set; }
 
         public string Rolle { get; set; }
