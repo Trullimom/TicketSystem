@@ -12,7 +12,7 @@ using TicketSystem.Models.Data;
 namespace TicketSystem.Migrations
 {
     [DbContext(typeof(AnwendungsDbContext))]
-    [Migration("20250127080833_27_01_25_morgen")]
+    [Migration("20250127084732_27_01_25_morgen")]
     partial class _27_01_25_morgen
     {
         /// <inheritdoc />
@@ -33,6 +33,9 @@ namespace TicketSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Ansprechpartner")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("Datum")
                         .HasColumnType("datetime2");
 
@@ -49,9 +52,6 @@ namespace TicketSystem.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("KundenName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MitarbeiterName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nachricht")

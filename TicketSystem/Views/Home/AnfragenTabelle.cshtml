@@ -10,7 +10,7 @@
 		<tr>
 			<th class="text-center">TicketId </th>
 			<th class="text-center">Kundenname</th>
-			<th class="text-center">Mitarbeitername</th>
+			<th class="text-center">Ansprechpartner</th>
 			<th class="text-center">Deadline</th>
 			<th class="text-center">Status</th>
 			<th></th>
@@ -25,7 +25,7 @@
 			<tr>
 				<td>@anfrage.Id</td>
 				<td>@anfrage.KundenName</td>
-				<td>@anfrage.MitarbeiterName</td>
+				<td>@anfrage.Ansprechpartner</td>
 				<td>@anfrage.DeadLine.ToShortDateString()</td>
 				
 					@if (anfrage.Erledigt == true)

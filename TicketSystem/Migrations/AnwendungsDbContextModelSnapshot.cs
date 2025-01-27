@@ -30,6 +30,9 @@ namespace TicketSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Ansprechpartner")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("Datum")
                         .HasColumnType("datetime2");
 
@@ -46,9 +49,6 @@ namespace TicketSystem.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("KundenName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MitarbeiterName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nachricht")

@@ -10,7 +10,7 @@
         <tr>
             <th>TicketId </th>
             <th>Kundenname</th>
-            <th>Mitarbeitername</th>
+            <th>Ansprechpartner</th>
             <th>Deadline</th>
             <th>Status</th>
             <th></th>
@@ -29,7 +29,7 @@
             <tr>
                 <td>@anfrage.Id</td>
                 <td>@anfrage.KundenName</td>
-                <td>@anfrage.MitarbeiterName</td>
+                <td>@anfrage.Ansprechpartner</td>
                 <td>@anfrage.DeadLine.ToShortDateString()</td>
                 @if (anfrage.Erledigt == true)
                 {
@@ -52,7 +52,7 @@
                 }               
                 </form>
                 <td>@anfrage.Nachricht</td>
-                <td class="text-center">List von Mitarbeiter hinzufügen</td>
+                <td class="text-center">Mitarbeiter Name</td>
                 <td>@anfrage.Kommentar</td>
                 <td><a asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="">Kommentieren</a></td>
                 <form asp-action="Löschen">

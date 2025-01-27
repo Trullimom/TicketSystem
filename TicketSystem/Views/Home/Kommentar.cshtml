@@ -1,11 +1,13 @@
-﻿<form asp-action="Kommentar" method="post">
-    <div class="input-group input-group-lg">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-lg">Kommentar</span>
-        </div>
+﻿@{
+    Layout = "_Eingeloggt";
+}
+
+<form asp-action="Kommentar" method="post">
+    <div class="input-group input-group-lg">   
+        <span class="input-group-text" id="inputGroup-sizing-lg">Kommentar</span>
         <input type="text" class="form-control" aria-label="Kommentar" aria-describedby="inputGroup-sizing-sm" name="kommentar">
     </div>
-    <button type="submit">Kommentieren</button>
+    <button type="submit" class="btn btn-primary mt-3">Kommentieren</button>
+    <button asp-action="AnfragenTabelle" class="btn btn-primary mt-3">Zurück zur Tabelle</button>
 </form>
 
-<button><a asp-action="AnfragenTabelle">Zurück zur Tabelle</a></button>

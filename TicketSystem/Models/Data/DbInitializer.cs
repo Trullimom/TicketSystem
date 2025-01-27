@@ -17,10 +17,10 @@ public static class DbInitializer
         // Neue BlogPosts als Array anlegen.
         var anfragen = new Anfrage[]
         {
-            new Anfrage{ KundenName= "Kunde1", MitarbeiterName = "Andre", Email="asda", DeadLine =new DateTime(2025,01,23), Erledigt= false, Kommentar= "blablabla" },
-            new Anfrage{ KundenName= "Kunde2", MitarbeiterName = "Jihye", Email="asda", DeadLine =new DateTime(2025,01,23), Erledigt= true, Kommentar= "blablabla" },
-            new Anfrage{ KundenName= "Kunde3", MitarbeiterName = "Marcel", Email="asda", DeadLine =new DateTime(2025,01,23), Erledigt= false, Kommentar= "blablabla" },
-            new Anfrage{ KundenName= "Kunde4", MitarbeiterName = "Abdullah", Email="asda", DeadLine =new DateTime(2025,01,23), Erledigt= false, Kommentar= "blablabla" }
+            new Anfrage{ KundenName= "Kunde1", Ansprechpartner = "Max Mustermann", Email="mustermann@gmail.com", DeadLine =new DateTime(2025,01,23), Erledigt= false, Kommentar= "dringend" },
+            new Anfrage{ KundenName= "Kunde2", Ansprechpartner = "Julia Musterfrau", Email="musterfrau@gmail.com", DeadLine =new DateTime(2025,01,23), Erledigt= true, Kommentar= "3 Tage noch" },
+            new Anfrage{ KundenName= "Kunde3", Ansprechpartner = "Erika Richter", Email="richter@gmx.de", DeadLine =new DateTime(2025,01,23), Erledigt= false, Kommentar= "bitte checken" },
+            new Anfrage{ KundenName= "Kunde4", Ansprechpartner = "Wolfgang Bommes", Email="bommes@hotmail.com", DeadLine =new DateTime(2025,01,23), Erledigt= false, Kommentar= "" }
         };
 
 

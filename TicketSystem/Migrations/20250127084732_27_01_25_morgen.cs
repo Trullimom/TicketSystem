@@ -21,7 +21,7 @@ namespace TicketSystem.Migrations
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Telefon = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Nachricht = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MitarbeiterName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Ansprechpartner = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Datum = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Erledigt = table.Column<bool>(type: "bit", nullable: false),
                     DeadLine = table.Column<DateTime>(type: "datetime2", nullable: false),
