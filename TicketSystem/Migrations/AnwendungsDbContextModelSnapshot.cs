@@ -33,7 +33,7 @@ namespace TicketSystem.Migrations
                     b.Property<DateTime?>("Datum")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DeadLine")
+                    b.Property<DateTime>("DeadLine")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
@@ -69,6 +69,9 @@ namespace TicketSystem.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("IstEingeloggt")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Nachname")
                         .IsRequired()

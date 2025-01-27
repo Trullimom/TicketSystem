@@ -22,6 +22,8 @@ namespace TicketSystem.Models
 
         public string Nachname { get; set; } = String.Empty;
 
+        public bool IstEingeloggt { get; set; } = false;
+
 
 
     }

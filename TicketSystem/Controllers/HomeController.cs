@@ -48,6 +48,7 @@ namespace TicketSystem.Controllers
             
             if (_loginDatenRepository.IstLoginKorrekt(m))
             {
+                m.IstEingeloggt = true;
                 string view = _loginDatenRepository.CheckRolle(m);
                 return View(view, _ticketsystemRepository.GetAll());
             }
