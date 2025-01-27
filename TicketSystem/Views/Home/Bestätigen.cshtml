@@ -5,33 +5,35 @@
 }
 @model Anfrage
 
-<div class="container mt-4">
+<h2 class="mx-lg-3">Anfrage erfolgreich gesendet</h2>
+<div class="container mt-1">
     <table class="table table-bordered">
         <thead class="table-light">
             <tr>
-                <th class="text-center">Kategorie</th>
+                <th class="text-center" style="width: 203px;">Kategorie</th>
                 <th class="text-center">Information</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Name</td>
+                <td class="bg-light"><strong>Name</strong></td>
                 <td>@Model.KundenName</td>
             </tr>
             <tr>
-                <td>Email</td>
+                <td class="bg-light"><strong>Email</strong></td>
                 <td>@Model.Email</td>
             </tr>
             <tr>
-                <td>Telefon</td>
+                <td class="bg-light"><strong>Telefon</strong></td>
                 <td>@Model.Telefon</td>
             </tr>
             <tr>
-                <td>Nachricht</td>
+                <td class="bg-light"><strong>Nachricht</strong></td>
                 <td>@Model.Nachricht</td>
             </tr>
         </tbody>
     </table>
 
-    <button><a class="text-light" asp-action="Kontakt">Neue Anfrage</a></button>
-    <button><a class="text-light" asp-action="Index">Zurück</a></button>
+    <button class="btn btn-primary"><a class="text-light " asp-action="Kontakt">Neue Anfrage</a></button>
+    <button class="btn btn-primary"><a class="text-light" asp-action="Index">Zurück</a></button>
+</div>

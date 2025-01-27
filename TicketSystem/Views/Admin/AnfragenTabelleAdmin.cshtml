@@ -26,8 +26,6 @@
         </tr>
     </thead>
     <tbody>
-        @* hhh *@
-
         @foreach (Anfrage anfrage in Model)
         {
             <tr>
@@ -43,7 +41,7 @@
                 {
                     <td>nicht erledigt</td>
                 }
-                <form asp-action="Erledigt" method="post">
+                <form asp-controller="Admin" asp-action="Erledigt" method="post">
                     <input type="hidden" name="id" value="@anfrage.Id" />
                     @if (anfrage.Erledigt == true)
                     {
@@ -74,5 +72,5 @@
 
 <button class="btn btn-primary"><a class="text-light" asp-action="Index">Home</a></button>
 <button class="btn btn-primary"><a class="text-light" asp-controller="Admin"  asp-action="MitarbeiterTabelle">MA Tabelle</a></button>
-<button class="btn btn-primary"><a class="text-light" asp-controller="Admin" asp-action="Kontakt">Anfrage Hinzufügen</a></button>
+<button class="btn btn-primary"><a class="text-light" asp-controller="Admin" asp-action="AddTicket">Anfrage Hinzufügen</a></button>
 

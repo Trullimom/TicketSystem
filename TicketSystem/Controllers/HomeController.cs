@@ -50,7 +50,16 @@ namespace TicketSystem.Controllers
             {
                 m.IstEingeloggt = true;
                 string view = _loginDatenRepository.CheckRolle(m);
-                return View(view, _ticketsystemRepository.GetAll());
+                string controller = "";
+                if(view == "AnfragenTabelleAdmin")
+                {
+                    controller = "Admin";
+                }
+                else
+                {
+                    controller = "Home";
+                }
+                return RedirectToAction(view, controller);
             }
             else
             {
@@ -77,9 +86,9 @@ namespace TicketSystem.Controllers
                     anfrage.Erledigt = true;
                 }
                 
-                _ticketsystemRepository.Update(anfrage);
+                _ticketsystemRepository.Update(anfrage);  
             }
-            return View("AnfragenTabelle", _ticketsystemRepository.GetAll());
+            return View("Anfragentabelle", _ticketsystemRepository.GetAll());
         }
 
         [HttpGet]
@@ -97,24 +106,9 @@ namespace TicketSystem.Controllers
             return View(_ticketsystemRepository.GetAll());
         }
 
-        [HttpPost]
-        public IActionResult Löschen(int id)
-        {
-            _ticketsystemRepository.Delete(id);
-            return View("Admin", _ticketsystemRepository.GetAll());
-        }
+        
 
-        public IActionResult MitarbeiterTabelle()
-        {
-            return View(_loginDatenRepository.GetAll());
-        }
-        [HttpPost]
-        public IActionResult DeleteMitarbeiter(int id)
-        {
-            _loginDatenRepository.Delete(id);
-            return View("MitarbeiterTabelle", _loginDatenRepository.GetAll());
-
-        }
+        
 
         //TODO
         //public IActionResult AddMitarbeiter(MitarbeiterDaten m)

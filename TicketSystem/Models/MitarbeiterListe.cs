@@ -20,7 +20,7 @@ namespace TicketSystem.Models
             if (m.UserName.StartsWith("admin"))
             {
                 m.Rolle = "Admin";
-                m.ViewName = "Admin";
+                m.ViewName = "AnfragenTabelleAdmin";
             }
             else
             {
