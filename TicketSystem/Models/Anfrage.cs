@@ -10,7 +10,7 @@
         public string? MitarbeiterName { get; set; }
         public DateTime? Datum { get; set; }
         public bool Erledigt { get; set; } = false;
-        public DateTime? DeadLine { get; set; }
+        public DateTime DeadLine { get; set; }
         public string? Kommentar { get; set; }
 
         

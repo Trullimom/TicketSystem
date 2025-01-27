@@ -22,7 +22,7 @@
 				<td>@anfrage.Id</td>
 				<td>@anfrage.KundenName</td>
 				<td>@anfrage.MitarbeiterName</td>
-				<td>@anfrage.DeadLine</td>
+				<td>@anfrage.DeadLine.ToShortDateString()</td>
 				
 					@if (anfrage.Erledigt == true)
 					{
