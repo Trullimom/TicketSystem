@@ -4,7 +4,11 @@
 
 @model List<Anfrage>
 
-<h3>Alle Tickets:</h3>
+<div class="d-flex justify-content-between align-items-center ">
+    <h3>Alle Tickets:</h3>
+    <h1>Admin Seite</h1>
+</div>
+
 <table class="table table-bordered table-striped table-sm">
     <thead>
         <tr>
@@ -23,7 +27,7 @@
     </thead>
     <tbody>
 
-        <h1>Admin Seite</h1>
+
         @foreach (Anfrage anfrage in Model)
         {
             <tr>
