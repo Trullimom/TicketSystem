@@ -19,7 +19,7 @@ namespace TicketSystem.Controllers
             _loginDatenRepository = ldRepo;
         }
 
-        
+
         public IActionResult Index()
         {
             return View();
@@ -83,7 +83,18 @@ namespace TicketSystem.Controllers
             return View("AnfragenTabelleAdmin", _ticketsystemRepository.GetAll());
         }
 
-        //
+        [HttpGet]
+        public IActionResult AddMitarbeiter()
+        {
+            return View("MitarbeiterFormular");
+        }
+
+        [HttpPost]
+        public IActionResult AddMitarbeiter(MitarbeiterDaten m)
+        {
+            _loginDatenRepository.Add(m);
+            return View("MitarbeiterTabelle", _loginDatenRepository.GetAll());
+        }
         public IActionResult MitarbeiterTabelle()
         {
             return View(_loginDatenRepository.GetAll());
