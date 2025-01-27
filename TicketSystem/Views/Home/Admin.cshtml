@@ -41,23 +41,26 @@
                 }
                 <form asp-action="Erledigt" method="post">
                     <input type="hidden" name="id" value="@anfrage.Id" />
-                @if (anfrage.Erledigt == true){
+                    @if (anfrage.Erledigt == true)
+                    {
                     <td>
-                        <button type="submit">zurücksetzen</button>
+                        <button type="submit" class="btn btn-warning w-100 h-100">zurücksetzen</button>
                     </td>
-                }else{
+                    }
+                    else
+                    {
                     <td>
-                        <button type="submit">Erledigt markieren</button>
+                        <button type="submit" class="btn btn-success w-100 h-100" >Erledigt markieren</button>
                     </td>
-                }               
+                    }
                 </form>
                 <td>@anfrage.Nachricht</td>
-                <td class="text-center">Mitarbeiter Name</td>
+                <td class="text-center"> Name v. Mitarbeiter</td>
                 <td>@anfrage.Kommentar</td>
                 <td><a asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="">Kommentieren</a></td>
                 <form asp-action="Löschen">
                     <input type="hidden" name="id" value="@anfrage.Id" />
-                    <td><button>Löschen</button></td>
+                    <td><button class="btn btn-danger">Löschen</button></td>
                 </form>
                
             </tr>
@@ -65,8 +68,8 @@
     </tbody>
 </table>
 
-<button><a class="text-light" asp-action="Index">Home</a></button>
-<button><a class="text-light" asp-action="MitarbeiterTabelle">MA Tabelle</a></button>
-<button><a class="text-light" asp-action="Kontakt">Anfrage Hinzufügen</a></button>
+<button class="btn btn-primary"><a class="text-light" asp-action="Index">Home</a></button>
+<button class ="btn btn-primary"><a class="text-light" asp-action="MitarbeiterTabelle">MA Tabelle</a></button>
+<button class="btn btn-primary"><a class="text-light" asp-action="Kontakt">Anfrage Hinzufügen</a></button>
 
 
