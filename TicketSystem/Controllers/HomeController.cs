@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using TicketSystem.Models;
 using TicketSystem.Models.Data;
 
@@ -45,19 +47,23 @@ namespace TicketSystem.Controllers
         [HttpPost]
         public IActionResult CheckLogin(MitarbeiterDaten m)
         {
-            
             if (_loginDatenRepository.IstLoginKorrekt(m))
             {
-                m.IstEingeloggt = true;
                 string view = _loginDatenRepository.CheckRolle(m);
                 string controller = "";
-                if(view == "AnfragenTabelleAdmin")
+                if (!ModelState.IsValid)
                 {
-                    controller = "Admin";
-                }
-                else
-                {
-                    controller = "Home";
+                    m.IstEingeloggt = true;
+
+                    if (view == "AnfragenTabelleAdmin")
+                    {
+                        controller = "Admin";
+                    }
+                    else
+                    {
+                        controller = "Home";
+                    }
+
                 }
                 return RedirectToAction(view, controller);
             }
@@ -65,6 +71,7 @@ namespace TicketSystem.Controllers
             {
                 return View("Login");
             }
+
         }
 
         public IActionResult AnfragenTabelle()
@@ -85,8 +92,8 @@ namespace TicketSystem.Controllers
                 {
                     anfrage.Erledigt = true;
                 }
-                
-                _ticketsystemRepository.Update(anfrage);  
+
+                _ticketsystemRepository.Update(anfrage);
             }
             return View("Anfragentabelle", _ticketsystemRepository.GetAll());
         }
@@ -96,7 +103,7 @@ namespace TicketSystem.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         public IActionResult Kommentar(int Id, string kommentar)
         {
