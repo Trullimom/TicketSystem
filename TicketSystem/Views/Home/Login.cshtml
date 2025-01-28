@@ -1,11 +1,25 @@
 @model MitarbeiterDaten
 
+<style>
+    body {
+        background-image: url('/images/PROJECT_BACKGROUND.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+
+
+
+
 <div style="padding-top: 7rem;">
     <div class="row justify-content-center">
         <div class="col-md-5 col-lg-4">
             <div class="card shadow-lg p-5 rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;">
                 <h2 class="text-center mb-3">Login</h2>
-                <form asp-controller="Admin" asp-action="CheckLogin" asp-controller="Home" method="post" class="form-group">
+                <form asp-controller="Home" asp-action="CheckLogin" method="post" class="form-group">
                     <div class="mb-3">
                         <input type="text" asp-for="@Model.UserName" class="form-control bg-light form-control-lg" placeholder="Username">
                     </div>
