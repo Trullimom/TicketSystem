@@ -14,7 +14,8 @@
     <thead>
         <tr>
             <th class="text-center">Ticket ID </th>
-            <th class="text-center">Kundenname</th>
+            <th class="text-center">Firmenname</th>
+            <th class="text-center">Projekt Name</th>
             <th class="text-center">Ansprechpartner</th>
             <th class="text-center">Deadline</th>
             <th class="text-center">Status</th>
@@ -29,17 +30,18 @@
         {
             <tr>
                 <td class="text-center">@anfrage.Id</td>
-                <td>@anfrage.KundenName</td>
-                <td>@anfrage.Ansprechpartner</td>
-                <td>@anfrage.DeadLine.ToShortDateString()</td>
+                <td class="text-center">@anfrage.KundenName</td>
+                <td class="text-center">@anfrage.ProjektName</td>
+                <td class="text-center">@anfrage.Ansprechpartner</td>
+                <td class="text-center">@anfrage.DeadLine.ToShortDateString()</td>
 
                 @if (anfrage.Erledigt == true)
                 {
-                    <td>erledigt</td>
+                    <td class="text-center">erledigt</td>
                 }
                 else
                 {
-                    <td>nicht erledigt</td>
+                    <td class="text-center">nicht erledigt</td>
                 }
                 <form asp-action="Erledigt" method="post">
                     <input type="hidden" name="id" value="@anfrage.Id" />
@@ -56,8 +58,8 @@
                     </td>
                     }
                 </form>
-                <td>@anfrage.Nachricht</td>
-                <td>@anfrage.Kommentar</td>
+                <td class="text-center">@anfrage.Nachricht</td>
+                <td class="text-center">@anfrage.Kommentar</td>
                 <td class="text-center"><a asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="" class="">Kommentieren</a></td>
             </tr>
         }

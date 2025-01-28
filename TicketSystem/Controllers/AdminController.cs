@@ -117,5 +117,21 @@ namespace TicketSystem.Controllers
             return View("MitarbeiterTabelle", _loginDatenRepository.GetAll());
 
         }
+
+        [HttpGet]
+        public IActionResult Mitarbeiter()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Mitarbeiter(int Id, MitarbeiterDaten md)
+        {
+            Anfrage anfrage = _ticketsystemRepository.GetAll().Find(x => x.Id == Id);
+            anfrage.Mitarbeiter = md.Nachname;
+            _ticketsystemRepository.Update(anfrage);
+            return View("AnfragenTabelleAdmin", _ticketsystemRepository.GetAll());
+        }
     }
 }

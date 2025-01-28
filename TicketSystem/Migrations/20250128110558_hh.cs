@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TicketSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class _27_01_25_morgen : Migration
+    public partial class hh : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,6 +18,7 @@ namespace TicketSystem.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     KundenName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProjektName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Telefon = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Nachricht = table.Column<string>(type: "nvarchar(max)", nullable: true),

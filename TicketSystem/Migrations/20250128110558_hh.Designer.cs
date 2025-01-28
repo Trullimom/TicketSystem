@@ -12,8 +12,8 @@ using TicketSystem.Models.Data;
 namespace TicketSystem.Migrations
 {
     [DbContext(typeof(AnwendungsDbContext))]
-    [Migration("20250127084732_27_01_25_morgen")]
-    partial class _27_01_25_morgen
+    [Migration("20250128110558_hh")]
+    partial class hh
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,6 +55,9 @@ namespace TicketSystem.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nachricht")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjektName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefon")
