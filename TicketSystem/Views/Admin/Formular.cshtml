@@ -8,7 +8,12 @@
 <form asp-controller="Admin" asp-action="AddTicket" method="post" class="contact-form">
     <div class="form-group">
         <label><strong>Firmen Name: </strong></label>
-        <input type="text" asp-for="@Model.KundenName" placeholder="Firmen Name" class="form-control bg-light">
+        <select asp-for="@Model.KundenName" class="form-select">
+        @foreach(var project in AnfragenListe.anfragenListe){
+                <option value="@project.KundenName">@project.KundenName</option>
+        }
+        </select>
+       @*  <input type="text" asp-for="@Model.KundenName" placeholder="Firmen Name" class="form-control bg-light"> *@
     </div>
 
     <div class="form-group">

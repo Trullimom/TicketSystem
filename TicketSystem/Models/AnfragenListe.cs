@@ -7,6 +7,14 @@ namespace TicketSystem.Models
         //public static List<Anfrage> anfragenListe { get; set; } = new List<Anfrage>();
 
         private readonly AnwendungsDbContext _context;  // Neue variabel von Datenbank
+
+        public static List<Anfrage> anfragenListe = new List<Anfrage>
+        {
+            new Anfrage{ KundenName= "Kunde1", Ansprechpartner = "Max Mustermann", Email="mustermann@gmail.com", DeadLine =new DateTime(2025,01,23), Erledigt= false, Kommentar= "dringend" },
+            new Anfrage{ KundenName= "Kunde2", Ansprechpartner = "Julia Musterfrau", Email="musterfrau@gmail.com", DeadLine =new DateTime(2025,01,23), Erledigt= true, Kommentar= "3 Tage noch" },
+            new Anfrage{ KundenName= "Kunde3", Ansprechpartner = "Erika Richter", Email="richter@gmx.de", DeadLine =new DateTime(2025,01,23), Erledigt= false, Kommentar= "bitte checken" },
+            new Anfrage{ KundenName= "Kunde4", Ansprechpartner = "Wolfgang Bommes", Email="bommes@hotmail.com", DeadLine =new DateTime(2025,01,23), Erledigt= false, Kommentar= "" }
+        };
         public AnfragenListe(AnwendungsDbContext context)  // Konstruktor 
         {
             _context = context;

@@ -105,17 +105,6 @@ namespace TicketSystem.Controllers
             _ticketsystemRepository.Update(anfrage);
             return View(_ticketsystemRepository.GetAll());
         }
-
-        
-
-        
-
-        //TODO
-        //public IActionResult AddMitarbeiter(MitarbeiterDaten m)
-        //{
-        //    _loginDatenRepository.Add(m);
-        //     return View("MitarbeiterTabelle", _loginDatenRepository.GetAll());
-        //}
     }
 }
 
