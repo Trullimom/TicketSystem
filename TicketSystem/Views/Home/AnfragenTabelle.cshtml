@@ -1,63 +1,67 @@
-﻿@{
-	Layout = "_Eingeloggt";
+﻿
+
+@{
+    Layout = "_Eingeloggt";
 }
 
 @model List<Anfrage>
 
-<h3>Alle Tickets:</h3>
+<div class="d-flex justify-content-between align-items-center ">
+    <h3>Alle Tickets:</h3>
+    <h1>Mitarbeiter Seite</h1>
+</div>
 <table class="table table-bordered table-striped table-sm">
-	<thead>
-		<tr>
-			<th class="text-center">TicketId </th>
-			<th class="text-center">Kundenname</th>
-			<th class="text-center">Ansprechpartner</th>
-			<th class="text-center">Deadline</th>
-			<th class="text-center">Status</th>
-			<th></th>
-			<th class="text-center">Nachricht</th>
-			<th class="text-center">Kommentar</th>
-			<th class="text-center">Kommentar hinzufügen</th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (Anfrage anfrage in Model)
-		{
-			<tr>
-				<td>@anfrage.Id</td>
-				<td>@anfrage.KundenName</td>
-				<td>@anfrage.Ansprechpartner</td>
-				<td>@anfrage.DeadLine.ToShortDateString()</td>
-				
-					@if (anfrage.Erledigt == true)
-					{
-					<td>erledigt</td>
-					}
-					else
-					{
-					<td>nicht erledigt</td>
-					}
-				<form asp-action="Erledigt" method="post">
-				<input type="hidden" name="id" value="@anfrage.Id" />
-					@if (anfrage.Erledigt == true)
-					{
-					<td>
-						<button type="submit">zurücksetzen</button>
-					</td>
-					}
-					else
-					{
-					<td>
-						<button type="submit">Erledigt markieren</button>
-					</td>
-					}
-				</form>
-				<td>@anfrage.Nachricht</td>
-				<td>@anfrage.Kommentar</td>
-				<td><a asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="">Kommentieren</a></td>
-			</tr>
-		}
-	</tbody>
+    <thead>
+        <tr>
+            <th class="text-center">Ticket ID </th>
+            <th class="text-center">Kundenname</th>
+            <th class="text-center">Ansprechpartner</th>
+            <th class="text-center">Deadline</th>
+            <th class="text-center">Status</th>
+            <th></th>
+            <th class="text-center">Nachricht</th>
+            <th class="text-center">Kommentar</th>
+            <th class="text-center">Kommentar hinzufügen</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Anfrage anfrage in Model)
+        {
+            <tr>
+                <td class="text-center">@anfrage.Id</td>
+                <td>@anfrage.KundenName</td>
+                <td>@anfrage.Ansprechpartner</td>
+                <td>@anfrage.DeadLine.ToShortDateString()</td>
+
+                @if (anfrage.Erledigt == true)
+                {
+                    <td>erledigt</td>
+                }
+                else
+                {
+                    <td>nicht erledigt</td>
+                }
+                <form asp-action="Erledigt" method="post">
+                    <input type="hidden" name="id" value="@anfrage.Id" />
+                    @if (anfrage.Erledigt == true)
+                    {
+                    <td>
+                        <button type="submit" class="btn btn-warning w-100 h-100">zurücksetzen</button>
+                    </td>
+                    }
+                    else
+                    {
+                    <td>
+                        <button type="submit" class="btn btn-success w-100 h-100">Erledigt markieren</button>
+                    </td>
+                    }
+                </form>
+                <td>@anfrage.Nachricht</td>
+                <td>@anfrage.Kommentar</td>
+                <td class="text-center"><a asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="" class="">Kommentieren</a></td>
+            </tr>
+        }
+    </tbody>
 </table>
 
-<button><a class="text-light" asp-action="Index">Home</a></button>
-
+<button class="btn btn-primary"><a class="text-light" asp-action="Index">Home</a></button>

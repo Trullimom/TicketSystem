@@ -1,18 +1,22 @@
 @model MitarbeiterDaten
 
-<div class="container mt-5">
+<div style="padding-top: 7rem;">
     <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-4 text-center">
-            <form asp-action="CheckLogin" asp-controller="Home" method="post" class="form-group">
-                <div class="mb-3">
-                    <input type="text" asp-for="@Model.UserName" class="form-control bg-light" placeholder="Username">
-                </div>
-                <div class="mb-3">
-                    <input type="password" asp-for="@Model.Passwort" class="form-control bg-light" placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-primary">Login</button>
-            </form>
+        <div class="col-md-5 col-lg-4">
+            <div class="card shadow-lg p-5 rounded" style="box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;">
+                <h2 class="text-center mb-3">Login</h2>
+                <form asp-controller="Admin" asp-action="CheckLogin" asp-controller="Home" method="post" class="form-group">
+                    <div class="mb-3">
+                        <input type="text" asp-for="@Model.UserName" class="form-control bg-light form-control-lg" placeholder="Username">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" asp-for="@Model.Passwort" class="form-control bg-light form-control-lg" placeholder="Password">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg w-100">Login</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
-

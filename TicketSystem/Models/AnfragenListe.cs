@@ -25,6 +25,15 @@ namespace TicketSystem.Models
             return _context.AnfrageDaten.ToList();
         }
 
+        public List<Anfrage> SortByName()
+        { 
+            return _context.AnfrageDaten.OrderBy(a => a.KundenName).ToList();
+        }
+
+        public List<Anfrage> SortByDate()
+        {
+            return _context.AnfrageDaten.OrderBy(a => a.DeadLine).ToList();
+        }
         public Anfrage GetById(int id)
         {
             return _context.AnfrageDaten.Find(id);
@@ -49,10 +58,11 @@ namespace TicketSystem.Models
                 _context.SaveChanges();
             }
         }
-
         public bool Exists(int id)
         {
             return _context.AnfrageDaten.Any(e => e.Id == id);
         }
+
+       
     }
 }

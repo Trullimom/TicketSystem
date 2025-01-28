@@ -30,6 +30,16 @@ namespace TicketSystem.Controllers
             return View(_ticketsystemRepository.GetAll());
         }
 
+        public IActionResult SortierteAnfragenTabelle()
+        {
+            return View("AnfragentabelleAdmin", _ticketsystemRepository.SortByName());
+        }
+
+        public IActionResult SortierteAnfragenTabelleDatum()
+        {
+            return View("AnfragentabelleAdmin", _ticketsystemRepository.SortByDate());
+        }
+
         [HttpGet]
         public IActionResult AddTicket()
         {
@@ -39,6 +49,7 @@ namespace TicketSystem.Controllers
         public IActionResult AddTicket(Anfrage a)
         {
             _ticketsystemRepository.Add(a);
+            AnfragenListe.anfragenListe.Add(a);
             return View("AnfragenTabelleAdmin", _ticketsystemRepository.GetAll());
         }
 
