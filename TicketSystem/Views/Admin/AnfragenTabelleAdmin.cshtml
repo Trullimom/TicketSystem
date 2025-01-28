@@ -11,9 +11,10 @@
 
 <table class="table table-bordered table-striped table-sm">
     <thead>
-        <tr>
+        <tr class="text-center">
             <th>TicketId </th>
             <th>Kundenname</th>
+            <th>Projekt Name</th>
             <th>Ansprechpartner</th>
             <th>Deadline</th>
             <th>Status</th>
@@ -28,9 +29,10 @@
     <tbody>
         @foreach (Anfrage anfrage in Model)
         {
-            <tr>
+            <tr class="text-center">
                 <td>@anfrage.Id</td>
                 <td>@anfrage.KundenName</td>
+                <td>@anfrage.ProjektName</td>
                 <td>@anfrage.Ansprechpartner</td>
                 <td>@anfrage.DeadLine.ToShortDateString()</td>
                 @if (anfrage.Erledigt == true)
@@ -57,7 +59,7 @@
                     }
                 </form>
                 <td>@anfrage.Nachricht</td>
-                <td class="text-center">@anfrage.Mitarbeiter</td>
+                <td>@anfrage.Mitarbeiter</td>
                 <td><a asp-controller="Admin" asp-action="Mitarbeiter" asp-route-Id="@anfrage.Id" value="">Mitarbeiter hinzufügen</a></td>
                 <td>@anfrage.Kommentar</td>
                 <td><a asp-controller="Admin" asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="">Kommentieren</a></td>
@@ -74,3 +76,5 @@
 <button class="btn btn-primary"><a class="text-light" asp-action="Index">Home</a></button>
 <button class="btn btn-primary"><a class="text-light" asp-controller="Admin" asp-action="MitarbeiterTabelle">MA Tabelle</a></button>
 <button class="btn btn-primary"><a class="text-light" asp-controller="Admin" asp-action="AddTicket">Anfrage Hinzufügen</a></button>
+<button class="btn btn-primary"><a class="text-light" asp-controller="Admin" asp-action="SortierteAnfragenTabelle">Nach Projekt sortieren</a></button>
+<button class="btn btn-primary"><a class="text-light" asp-controller="Admin" asp-action="SortierteAnfragenTabelleDatum">Nach Datum sortieren</a></button>
