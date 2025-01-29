@@ -52,7 +52,7 @@ namespace TicketSystem.Controllers
         {
             _ticketsystemRepository.Add(a);
             AnfragenListe.anfragenListe.Add(a);
-            return View("AnfragenTabelleAdmin", _ticketsystemRepository.GetAll());
+            return View("AnfragenTabelleAdmin", a);
         }
 
         public IActionResult Erledigt(int id)
@@ -71,7 +71,7 @@ namespace TicketSystem.Controllers
 
                 _ticketsystemRepository.Update(anfrage);
             }
-            return View("AnfragenTabelleAdmin", _ticketsystemRepository.GetAll());
+            return View("AnfragenTabelleAdmin", anfrage);
         }
 
         [HttpGet]
