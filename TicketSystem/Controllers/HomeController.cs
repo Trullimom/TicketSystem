@@ -17,6 +17,7 @@ namespace TicketSystem.Controllers
         private ILoginDatenRepository _loginDatenRepository;
 
         public static MitarbeiterDaten mitarbeiter = new MitarbeiterDaten();
+        public static Anfrage anfrage = new Anfrage();
         public HomeController(ILogger<HomeController> logger, ITicketsystemRepository tsRepo, ILoginDatenRepository ldRepo)
         {
             _logger = logger;
@@ -99,7 +100,7 @@ namespace TicketSystem.Controllers
 
                 _ticketsystemRepository.Update(anfrage);
             }
-            return View("Anfragentabelle", _ticketsystemRepository.GetAll());
+            return View("Anfragentabelle", mitarbeiter);
         }
 
         [HttpGet]
@@ -117,6 +118,18 @@ namespace TicketSystem.Controllers
             anfrage.KommentarZeit = DateTime.Now;
             _ticketsystemRepository.Update(anfrage);
             return View(anfrage);
+        }
+
+        public IActionResult SortierteAnfragenTabelle()
+        {
+            _ticketsystemRepository.SortByName();
+            return View("Anfragentabelle", anfrage);
+        }
+
+        public IActionResult SortierteAnfragenTabelleDatum()
+        {
+            _ticketsystemRepository.SortByDate();
+            return View("Anfragentabelle", anfrage);
         }
     }
 }

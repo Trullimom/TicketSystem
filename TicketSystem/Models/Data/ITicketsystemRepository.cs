@@ -12,5 +12,6 @@ namespace TicketSystem.Models.Data
         void Update(Anfrage model);
         void Delete(int id);
         bool Exists(int id);
+        public void AddToProject(MitarbeiterDaten m);
     }
 }

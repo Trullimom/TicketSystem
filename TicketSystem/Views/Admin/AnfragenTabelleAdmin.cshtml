@@ -4,81 +4,98 @@
 
 @model Anfrage
 
+
 <div class="d-flex justify-content-between align-items-center ">
     <h3>Alle Tickets:</h3>
     <h1>Admin Seite</h1>
 </div>
 
-<table class="table table-bordered table-striped table-sm">
-    <thead>
-        <tr class="text-center">
-            <th>TicketId </th>
-            <th>Kundenname</th>
-            <th>Projekt Name</th>
-            <th>Ansprechpartner</th>
-            <th>Deadline</th>
-            <th>Status</th>
-            <th></th>
-            <th>Nachricht</th>
-            <th>Wer arbeitet?</th>
-            <th>Kommentar</th>
-            <th>Kommentar hinzufügen</th>
-            <th>Löschen</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (Anfrage anfrage in AnfragenListe.anfragenListe)
-        {
+<div class="d-flex justify-content-center">
+    <table class="table table-bordered table-striped" style="min-width: 80vw;">
+        <thead>
             <tr class="text-center">
-                <td>@anfrage.Id</td>
-                <td>@anfrage.KundenName</td>
-                <td>@anfrage.ProjektName</td>
-                <td>@anfrage.Ansprechpartner</td>
-                <td>@anfrage.DeadLine.ToShortDateString()</td>
-                @if (anfrage.Erledigt == true)
-                {
-                    <td>erledigt</td>
-                }
-                else
-                {
-                    <td>nicht erledigt</td>
-                }
-                <form asp-controller="Admin" asp-action="Erledigt" method="post">
-                    <input type="hidden" name="id" value="@anfrage.Id" />
+                <th>TicketId </th>
+                <th>Kundenname</th>
+                <th>Projekt Name</th>
+                <th>Ansprechpartner</th>
+                <th>Deadline</th>
+                <th colspan="2">Status</th>
+                <th>Nachricht</th>
+                <th>Wer arbeitet?</th>
+                <th colspan="2">Kommentar</th>
+                @* <th>Kommentar hinzufügen</th> *@
+                <th>Löschen</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Anfrage anfrage in AnfragenListe.anfragenListe)
+            {
+                <tr class="text-center">
+                    <td>@anfrage.Id</td>
+                    <td>@anfrage.KundenName</td>
+                    <td>@anfrage.ProjektName</td>
+                    <td>@anfrage.Ansprechpartner</td>
+                    <td>@anfrage.DeadLine.ToShortDateString()</td>
                     @if (anfrage.Erledigt == true)
                     {
-                    <td>
-                        <button type="submit" class="btn btn-warning w-100 h-100">zurücksetzen</button>
-                    </td>
+                        <td>erledigt</td>
                     }
                     else
                     {
-                    <td>
-                        <button type="submit" class="btn btn-success w-100 h-100">Erledigt markieren</button>
-                    </td>
+                        <td>nicht erledigt</td>
                     }
-                </form>
-                <td>@anfrage.Nachricht</td>
-                <td>@anfrage.Mitarbeiter</td>
-                <td><a asp-controller="Admin" asp-action="Mitarbeiter" asp-route-Id="@anfrage.Id" value="">Mitarbeiter hinzufügen</a></td>
-                <td class="text-center">
-                    Kommentar: @anfrage.Kommentar <br />
-                    Erstellt am: @anfrage.KommentarZeit<br />
-                    Von: @anfrage.EingeloggterUser
-                </td>
-                <td><a asp-controller="Admin" asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="">Kommentieren</a></td>
-                <form asp-controller="Admin" asp-action="Löschen">
-                    <input type="hidden" name="id" value="@anfrage.Id" />
-                <td><button class="btn btn-danger">Löschen</button></td>
-                </form>
+                    <form asp-controller="Admin" asp-action="Erledigt" method="post">
+                        <input type="hidden" name="id" value="@anfrage.Id" />
+                        @if (anfrage.Erledigt == true)
+                        {
+                        <td class="text-center align-middle">
+                            <button type="submit" class="btn btn-warning w-100 h-auto">zurücksetzen</button>
+                        </td>
+                        }
+                        else
+                        {
+                        <td class="text-center align-middle">
+                            <button type="submit" class="btn btn-success w-100 h-auto">Erledigt markieren</button>
+                        </td>
+                        }
+                    </form>
+                    <td>@anfrage.Nachricht</td>
+                    <td class="text-center align-middle p-2">
+                        <div class="d-flex flex-column align-items-center justify-content-center">
+                            <span>@anfrage.Mitarbeiter</span>
+                            <a asp-controller="Admin" asp-action="Mitarbeiter" asp-route-Id="@anfrage.Id" value="" class="mt-2">Mitarbeiter hinzufügen</a>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <div class="text-start">
+                            Kommentar: @anfrage.Kommentar <br />
+                            Erstellt am: @anfrage.KommentarZeit <br />
+                            Von: @anfrage.EingeloggterUser
+                        </div>
+                    </td>
+                    <td class="text-center align-middle">
+                        <a asp-controller="Admin" asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="" class="d-block">Kommentieren</a>
+                    </td>
+                    <form asp-controller="Admin" asp-action="Löschen">
+                        <input type="hidden" name="id" value="@anfrage.Id" />
+                    <td class="text-center align-middle">
+                        <button class="btn btn-danger w-100 h-100">Löschen</button>
+                    </td>
+                    </form>
 
-            </tr>
-        }
-    </tbody>
-</table>
-
-<button class="btn btn-primary"><a class="text-light" asp-action="Index">Home</a></button>
-<button class="btn btn-primary"><a class="text-light" asp-controller="Admin" asp-action="MitarbeiterTabelle">MA Tabelle</a></button>
-<button class="btn btn-primary"><a class="text-light" asp-controller="Admin" asp-action="AddTicket">Anfrage Hinzufügen</a></button>
-<button class="btn btn-primary"><a class="text-light" asp-controller="Admin" asp-action="SortierteAnfragenTabelle">Nach Projekt sortieren</a></button>
-<button class="btn btn-primary"><a class="text-light" asp-controller="Admin" asp-action="SortierteAnfragenTabelleDatum">Nach Datum sortieren</a></button>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="d-flex justify-content-center">
+    <div style="min-width: 80vw;">
+        <div class="d-flex">
+            <button class="btn btn-primary me-2"><a class="text-light" asp-action="Index">Home</a></button>
+            <button class="btn btn-primary me-2"><a class="text-light" asp-controller="Admin" asp-action="MitarbeiterTabelle">MA Tabelle</a></button>
+            <button class="btn btn-primary me-2"><a class="text-light" asp-controller="Admin" asp-action="AddTicket">Anfrage Hinzufügen</a></button>
+            <button class="btn btn-primary me-2"><a class="text-light" asp-controller="Admin" asp-action="SortierteAnfragenTabelle">Nach Projekt sortieren</a></button>
+            <button class="btn btn-primary me-2"><a class="text-light" asp-controller="Admin" asp-action="SortierteAnfragenTabelleDatum">Nach Datum sortieren</a></button>
+        </div>
+    </div>
+</div>

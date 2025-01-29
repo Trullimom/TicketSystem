@@ -12,6 +12,7 @@ namespace TicketSystem.Controllers
         //MitarbeiterDaten mitarbeiterDaten = new MitarbeiterDaten();
         private ILoginDatenRepository _loginDatenRepository;
         private static MitarbeiterDaten mitarbeiter = new MitarbeiterDaten();
+        public static Anfrage anfrage = new Anfrage();
         public AdminController(ILogger<HomeController> logger, ITicketsystemRepository tsRepo, ILoginDatenRepository ldRepo)
         {
             _logger = logger;
@@ -34,12 +35,15 @@ namespace TicketSystem.Controllers
 
         public IActionResult SortierteAnfragenTabelle()
         {
-            return View("AnfragentabelleAdmin", _ticketsystemRepository.SortByName());
+            _ticketsystemRepository.SortByName();
+            _ticketsystemRepository.Update(anfrage);
+            return View("AnfragentabelleAdmin", anfrage);
         }
 
         public IActionResult SortierteAnfragenTabelleDatum()
         {
-            return View("AnfragentabelleAdmin", _ticketsystemRepository.SortByDate());
+            _ticketsystemRepository.SortByDate();
+            return View("AnfragentabelleAdmin", anfrage);
         }
 
         [HttpGet]
@@ -95,7 +99,7 @@ namespace TicketSystem.Controllers
         public IActionResult Löschen(int id)
         {
             _ticketsystemRepository.Delete(id);
-            return View("AnfragenTabelleAdmin", _ticketsystemRepository.GetAll());
+            return View("AnfragenTabelleAdmin", anfrage);
         }
 
         [HttpGet]
@@ -135,8 +139,10 @@ namespace TicketSystem.Controllers
             Anfrage anfrage = _ticketsystemRepository.GetAll().Find(x => x.Id == Id);
             MitarbeiterDaten mitarbeiter = md;
             anfrage.Mitarbeiter = md.Nachname;
+            anfrage.TicketMitarbeiterListe.Add(md.Nachname);
             _ticketsystemRepository.Update(anfrage);
             return View("AnfragenTabelleAdmin", anfrage);
         }
+
     }
 }

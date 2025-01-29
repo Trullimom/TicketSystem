@@ -89,6 +89,8 @@ namespace TicketSystem.Models
             _context.SaveChanges();
         }
 
+        
+
         public void Delete(int id)
         {
             var mitarbeiter = _context.LoginDaten.Find(id);

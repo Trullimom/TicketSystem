@@ -27,13 +27,17 @@ namespace TicketSystem.Models
         }
 
         public List<Anfrage> SortByName()
-        { 
-            return _context.AnfrageDaten.OrderBy(a => a.KundenName).ToList();
+        {
+            List<Anfrage> tempList = _context.AnfrageDaten.OrderBy(a => a.KundenName).ToList();
+            anfragenListe = tempList;
+            return tempList;
         }
 
         public List<Anfrage> SortByDate()
         {
-            return _context.AnfrageDaten.OrderBy(a => a.DeadLine).ToList();
+            List<Anfrage> tempList = _context.AnfrageDaten.OrderBy(a => a.DeadLine).ToList();
+            anfragenListe = tempList;
+            return tempList;
         }
         public Anfrage GetById(int id)
         {
@@ -42,7 +46,6 @@ namespace TicketSystem.Models
         public void Add(Anfrage anfrage)
         {
             _context.AnfrageDaten.Add(anfrage);
-            anfragenListe.Add(anfrage);
             _context.SaveChanges();
         }
         public void Update(Anfrage anfrage)
@@ -66,6 +69,12 @@ namespace TicketSystem.Models
             return _context.AnfrageDaten.Any(e => e.Id == id);
         }
 
-       
+        public void AddToProject(MitarbeiterDaten m)
+        {
+            Anfrage anfrage = new Anfrage();
+            anfrage.TicketMitarbeiterListe.Add(m.VollerName);
+            _context.LoginDaten.Add(m);
+            _context.SaveChanges();
+        }
     }
 }
