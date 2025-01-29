@@ -51,6 +51,7 @@ namespace TicketSystem.Controllers
             if (_loginDatenRepository.IstLoginKorrekt(m))
             {
                 m.VollerName = MitarbeiterListe.CheckMitarbeiterName(m);
+                //m.KommentierZeit = MitarbeiterListe.GetKommentarZeit(m);
                 mitarbeiter = m;
                 string view = _loginDatenRepository.CheckRolle(m);
                 string controller = "";
@@ -113,6 +114,7 @@ namespace TicketSystem.Controllers
             Anfrage anfrage = _ticketsystemRepository.GetAll().Find(x => x.Id == Id);
             anfrage.Kommentar = kommentar;
             anfrage.EingeloggterUser = mitarbeiter.VollerName;
+            anfrage.KommentarZeit = DateTime.Now;
             _ticketsystemRepository.Update(anfrage);
             return View(anfrage);
         }

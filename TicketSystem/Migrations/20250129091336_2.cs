@@ -1,28 +1,29 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace TicketSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class _29_01_25_morgen : Migration
+    public partial class _2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "VollerName",
+            migrationBuilder.AddColumn<DateTime>(
+                name: "KommentierZeit",
                 table: "LoginDaten",
-                type: "nvarchar(max)",
+                type: "datetime2",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "VollerName",
+                name: "KommentierZeit",
                 table: "LoginDaten");
         }
     }

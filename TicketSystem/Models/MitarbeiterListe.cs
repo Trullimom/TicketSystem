@@ -30,6 +30,19 @@ namespace TicketSystem.Models
         {
             return _context.LoginDaten.ToList();
         }
+        public static DateTime GetKommentarZeit(MitarbeiterDaten m)
+        {
+            DateTime zeit = new DateTime();
+            foreach(var md in ListMitarbeiter)
+            {
+                if(m.UserName == md.UserName)
+                {
+                    zeit = DateTime.Now;
+                    break;
+                }
+            }
+            return zeit;
+        }
 
         public static string CheckMitarbeiterName(MitarbeiterDaten m)
         {

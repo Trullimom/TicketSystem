@@ -51,6 +51,9 @@ namespace TicketSystem.Migrations
                     b.Property<string>("Kommentar")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("KommentarZeit")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("KundenName")
                         .HasColumnType("nvarchar(max)");
 
@@ -81,6 +84,9 @@ namespace TicketSystem.Migrations
 
                     b.Property<bool>("IstEingeloggt")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime?>("KommentierZeit")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Nachname")
                         .IsRequired()

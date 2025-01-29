@@ -85,6 +85,7 @@ namespace TicketSystem.Controllers
             Anfrage anfrage = _ticketsystemRepository.GetAll().Find(x => x.Id == Id);
             anfrage.Kommentar = kommentar;
             anfrage.EingeloggterUser = HomeController.mitarbeiter.VollerName;
+            anfrage.KommentarZeit = DateTime.Now;
             _ticketsystemRepository.Update(anfrage);
             return View(anfrage);
         }
@@ -133,6 +134,7 @@ namespace TicketSystem.Controllers
             Anfrage anfrage = _ticketsystemRepository.GetAll().Find(x => x.Id == Id);
             anfrage.EingeloggterUser = md.VollerName;
             anfrage.EingeloggterUser = mitarbeiter.VollerName;
+            anfrage.KommentarZeit = DateTime.Now;
             _ticketsystemRepository.Update(anfrage);
             return View("AnfragenTabelleAdmin", _ticketsystemRepository.GetAll());
         }

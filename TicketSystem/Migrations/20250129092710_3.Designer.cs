@@ -12,8 +12,8 @@ using TicketSystem.Models.Data;
 namespace TicketSystem.Migrations
 {
     [DbContext(typeof(AnwendungsDbContext))]
-    [Migration("20250129075447_29_01_25_morgen1")]
-    partial class _29_01_25_morgen1
+    [Migration("20250129092710_3")]
+    partial class _3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,11 +54,13 @@ namespace TicketSystem.Migrations
                     b.Property<string>("Kommentar")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("KommentarZeit")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("KundenName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Mitarbeiter")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nachricht")
@@ -85,6 +87,9 @@ namespace TicketSystem.Migrations
 
                     b.Property<bool>("IstEingeloggt")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime?>("KommentierZeit")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Nachname")
                         .IsRequired()

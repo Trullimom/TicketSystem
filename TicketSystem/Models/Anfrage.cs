@@ -16,6 +16,7 @@
         public string? Kommentar { get; set; }
         public string? Mitarbeiter { get; set; }
         public string? EingeloggterUser { get; set; }
+        public DateTime? KommentarZeit { get; set; }
 
 
     }

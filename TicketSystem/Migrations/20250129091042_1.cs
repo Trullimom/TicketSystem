@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TicketSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class hh : Migration
+    public partial class _1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -26,7 +26,10 @@ namespace TicketSystem.Migrations
                     Datum = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Erledigt = table.Column<bool>(type: "bit", nullable: false),
                     DeadLine = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Kommentar = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Kommentar = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Mitarbeiter = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EingeloggterUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    KommentarZeit = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,7 +48,8 @@ namespace TicketSystem.Migrations
                     ViewName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Vorname = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Nachname = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IstEingeloggt = table.Column<bool>(type: "bit", nullable: false)
+                    IstEingeloggt = table.Column<bool>(type: "bit", nullable: false),
+                    VollerName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

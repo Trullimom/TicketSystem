@@ -60,8 +60,8 @@
                 <td class="text-center">@anfrage.Nachricht</td>
                 <td class="text-center">
                     Kommentar: @anfrage.Kommentar <br />
+                    Erstellt am: @anfrage.KommentarZeit<br />
                     Von: @anfrage.EingeloggterUser
-
                 </td>
                 <td class="text-center"><a asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="" class="">Kommentieren</a></td>
             </tr>

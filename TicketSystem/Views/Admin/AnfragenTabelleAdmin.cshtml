@@ -65,8 +65,8 @@
                 <td><a asp-controller="Admin" asp-action="Mitarbeiter" asp-route-Id="@anfrage.Id" value="">Mitarbeiter hinzufügen</a></td>
                 <td class="text-center">
                     Kommentar: @anfrage.Kommentar <br />
+                    Erstellt am: @anfrage.KommentarZeit<br />
                     Von: @anfrage.EingeloggterUser
-
                 </td>
                 <td><a asp-controller="Admin" asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="">Kommentieren</a></td>
                 <form asp-controller="Admin" asp-action="Löschen">

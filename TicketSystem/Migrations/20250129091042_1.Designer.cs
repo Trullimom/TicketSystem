@@ -12,8 +12,8 @@ using TicketSystem.Models.Data;
 namespace TicketSystem.Migrations
 {
     [DbContext(typeof(AnwendungsDbContext))]
-    [Migration("20250128110558_hh")]
-    partial class hh
+    [Migration("20250129091042_1")]
+    partial class _1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,6 +42,9 @@ namespace TicketSystem.Migrations
                     b.Property<DateTime>("DeadLine")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("EingeloggterUser")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -51,7 +54,13 @@ namespace TicketSystem.Migrations
                     b.Property<string>("Kommentar")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("KommentarZeit")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("KundenName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mitarbeiter")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nachricht")
@@ -96,6 +105,10 @@ namespace TicketSystem.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ViewName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VollerName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
