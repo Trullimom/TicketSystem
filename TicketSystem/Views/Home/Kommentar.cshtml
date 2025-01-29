@@ -1,17 +1,13 @@
 ﻿@{
     Layout = "_Eingeloggt";
 }
-
 @model Anfrage
 
 <form asp-action="Kommentar" method="post">
     <div class="input-group input-group-lg">   
         <span class="input-group-text" id="inputGroup-sizing-lg">Kommentar</span>
         <input type="text" class="form-control" aria-label="Kommentar" aria-describedby="inputGroup-sizing-sm" name="kommentar">
-       
-            <input type="hidden" name="Model.VollerName" />
-        
-        
+        <input type="hidden" name="Model.VollerName" />
     </div>
     <button type="submit" class="btn btn-primary mt-3">Kommentieren</button>
     <button class="btn btn-primary mt-3"><a class="text-light" asp-action="AnfragenTabelle">Zurück zur Tabelle</a></button>
