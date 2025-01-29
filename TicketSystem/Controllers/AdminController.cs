@@ -36,7 +36,7 @@ namespace TicketSystem.Controllers
         public IActionResult SortierteAnfragenTabelle()
         {
             _ticketsystemRepository.SortByName();
-            _ticketsystemRepository.Update(anfrage);
+
             return View("AnfragentabelleAdmin", anfrage);
         }
 
@@ -54,6 +54,11 @@ namespace TicketSystem.Controllers
         [HttpPost]
         public IActionResult AddTicket(Anfrage a)
         {
+            if(a.ProjektName == null)
+            {
+                a.ProjektName = a.NeuesProjekt;
+            }
+            
             _ticketsystemRepository.Add(a);
             AnfragenListe.anfragenListe.Add(a);
             return View("AnfragenTabelleAdmin", a);

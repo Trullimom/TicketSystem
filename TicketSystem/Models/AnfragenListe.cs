@@ -1,5 +1,6 @@
 ﻿using TicketSystem.Models.Data;
 
+
 namespace TicketSystem.Models
 {
     public class AnfragenListe : ITicketsystemRepository
