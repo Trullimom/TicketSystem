@@ -18,6 +18,7 @@ namespace TicketSystem.Models
         public AnfragenListe(AnwendungsDbContext context)  // Konstruktor 
         {
             _context = context;
+            anfragenListe = _context.AnfrageDaten.ToList();
         }
 
         public List<Anfrage> GetAll()
@@ -41,6 +42,7 @@ namespace TicketSystem.Models
         public void Add(Anfrage anfrage)
         {
             _context.AnfrageDaten.Add(anfrage);
+            anfragenListe.Add(anfrage);
             _context.SaveChanges();
         }
         public void Update(Anfrage anfrage)
@@ -55,6 +57,7 @@ namespace TicketSystem.Models
             if (anfrage != null)
             {
                 _context.AnfrageDaten.Remove(anfrage);
+                anfragenListe.Remove(anfrage);
                 _context.SaveChanges();
             }
         }

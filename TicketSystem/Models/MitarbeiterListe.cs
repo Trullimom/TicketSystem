@@ -6,11 +6,6 @@ namespace TicketSystem.Models
     {
         private readonly AnwendungsDbContext _context;
 
-        public MitarbeiterListe(AnwendungsDbContext context)
-        {
-            _context = context;
-        }
-
         public static List<MitarbeiterDaten> ListMitarbeiter = new List<MitarbeiterDaten>()
         {
              new MitarbeiterDaten { Rolle = "CodingCat", UserName = "admin", Passwort = "1111", Vorname = "Jihye", Nachname = "Lee"},
@@ -24,11 +19,31 @@ namespace TicketSystem.Models
                 new MitarbeiterDaten { Rolle = "Tester", UserName = "tester2", Passwort = "3335", Vorname = "Cemre", Nachname = "Yumruk"},
 
         };
+        public MitarbeiterListe(AnwendungsDbContext context)
+        {
+            _context = context;
+            ListMitarbeiter = _context.LoginDaten.ToList();
+
+        }
+
         public List<MitarbeiterDaten> GetAll()
         {
             return _context.LoginDaten.ToList();
         }
 
+        public static string CheckMitarbeiterName(MitarbeiterDaten m)
+        {
+            string name = "";
+            foreach (var md in ListMitarbeiter)
+            {
+                if (m.UserName == md.UserName)
+                {
+                    name = md.Nachname + ", " + md.Vorname;
+                    break;
+                }
+            }
+            return name;
+        }
         public string CheckRolle(MitarbeiterDaten m)
         {
             if (m.UserName.StartsWith("admin"))
@@ -57,6 +72,7 @@ namespace TicketSystem.Models
         public void Add(MitarbeiterDaten md)
         {
             _context.LoginDaten.Add(md);
+            ListMitarbeiter.Add(md);
             _context.SaveChanges();
         }
 
@@ -66,6 +82,7 @@ namespace TicketSystem.Models
             if (mitarbeiter != null)
             {
                 _context.LoginDaten.Remove(mitarbeiter);
+                ListMitarbeiter.Remove(mitarbeiter);
                 _context.SaveChanges();
             }
         }

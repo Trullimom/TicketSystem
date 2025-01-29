@@ -16,6 +16,7 @@ namespace TicketSystem.Controllers
         //MitarbeiterDaten mitarbeiterDaten = new MitarbeiterDaten();
         private ILoginDatenRepository _loginDatenRepository;
 
+        public static MitarbeiterDaten mitarbeiter = new MitarbeiterDaten();
         public HomeController(ILogger<HomeController> logger, ITicketsystemRepository tsRepo, ILoginDatenRepository ldRepo)
         {
             _logger = logger;
@@ -49,6 +50,8 @@ namespace TicketSystem.Controllers
         {
             if (_loginDatenRepository.IstLoginKorrekt(m))
             {
+                m.VollerName = MitarbeiterListe.CheckMitarbeiterName(m);
+                mitarbeiter = m;
                 string view = _loginDatenRepository.CheckRolle(m);
                 string controller = "";
                 if (!ModelState.IsValid)
@@ -65,7 +68,7 @@ namespace TicketSystem.Controllers
                     }
 
                 }
-                return RedirectToAction(view, controller);
+                return RedirectToAction(view, controller, mitarbeiter);
             }
             else
             {
@@ -76,7 +79,7 @@ namespace TicketSystem.Controllers
 
         public IActionResult AnfragenTabelle()
         {
-            return View(_ticketsystemRepository.GetAll());
+            return View(mitarbeiter);
         }
 
         public IActionResult Erledigt(int id)
@@ -109,8 +112,9 @@ namespace TicketSystem.Controllers
         {
             Anfrage anfrage = _ticketsystemRepository.GetAll().Find(x => x.Id == Id);
             anfrage.Kommentar = kommentar;
+            anfrage.EingeloggterUser = mitarbeiter.VollerName;
             _ticketsystemRepository.Update(anfrage);
-            return View(_ticketsystemRepository.GetAll());
+            return View(anfrage);
         }
     }
 }

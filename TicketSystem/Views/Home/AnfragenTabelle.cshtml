@@ -1,10 +1,9 @@
 ﻿
-
 @{
     Layout = "_Eingeloggt";
 }
 
-@model List<Anfrage>
+@model MitarbeiterDaten
 
 <div class="d-flex justify-content-between align-items-center ">
     <h3>Alle Tickets:</h3>
@@ -26,7 +25,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (Anfrage anfrage in Model)
+        @foreach (Anfrage anfrage in AnfragenListe.anfragenListe)
         {
             <tr>
                 <td class="text-center">@anfrage.Id</td>
@@ -59,7 +58,11 @@
                     }
                 </form>
                 <td class="text-center">@anfrage.Nachricht</td>
-                <td class="text-center">@anfrage.Kommentar</td>
+                <td class="text-center">
+                    Kommentar: @anfrage.Kommentar <br />
+                    Von: @anfrage.EingeloggterUser
+
+                </td>
                 <td class="text-center"><a asp-action="Kommentar" asp-route-Id="@anfrage.Id" value="" class="">Kommentieren</a></td>
             </tr>
         }

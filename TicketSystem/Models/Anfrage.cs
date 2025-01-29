@@ -15,6 +15,7 @@
         public DateTime DeadLine { get; set; }
         public string? Kommentar { get; set; }
         public string? Mitarbeiter { get; set; }
+        public string? EingeloggterUser { get; set; }
 
 
     }

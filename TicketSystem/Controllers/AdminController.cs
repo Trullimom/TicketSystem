@@ -11,7 +11,7 @@ namespace TicketSystem.Controllers
         private ITicketsystemRepository _ticketsystemRepository;
         //MitarbeiterDaten mitarbeiterDaten = new MitarbeiterDaten();
         private ILoginDatenRepository _loginDatenRepository;
-
+        private static MitarbeiterDaten mitarbeiter = new MitarbeiterDaten();
         public AdminController(ILogger<HomeController> logger, ITicketsystemRepository tsRepo, ILoginDatenRepository ldRepo)
         {
             _logger = logger;
@@ -129,7 +129,8 @@ namespace TicketSystem.Controllers
         public IActionResult Mitarbeiter(int Id, MitarbeiterDaten md)
         {
             Anfrage anfrage = _ticketsystemRepository.GetAll().Find(x => x.Id == Id);
-            anfrage.Mitarbeiter = md.Nachname;
+            anfrage.EingeloggterUser = md.VollerName;
+            anfrage.EingeloggterUser = mitarbeiter.VollerName;
             _ticketsystemRepository.Update(anfrage);
             return View("AnfragenTabelleAdmin", _ticketsystemRepository.GetAll());
         }
