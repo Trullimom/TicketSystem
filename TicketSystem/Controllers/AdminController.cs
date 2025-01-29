@@ -28,7 +28,8 @@ namespace TicketSystem.Controllers
     
         public IActionResult AnfragentabelleAdmin()
         {
-            return View(HomeController.mitarbeiter);
+            Anfrage anfrage = new Anfrage();
+            return View(anfrage);
         }
 
         public IActionResult SortierteAnfragenTabelle()
@@ -132,11 +133,10 @@ namespace TicketSystem.Controllers
         public IActionResult Mitarbeiter(int Id, MitarbeiterDaten md)
         {
             Anfrage anfrage = _ticketsystemRepository.GetAll().Find(x => x.Id == Id);
-            anfrage.EingeloggterUser = md.VollerName;
-            anfrage.EingeloggterUser = mitarbeiter.VollerName;
-            anfrage.KommentarZeit = DateTime.Now;
+            MitarbeiterDaten mitarbeiter = md;
+            anfrage.Mitarbeiter = md.Nachname;
             _ticketsystemRepository.Update(anfrage);
-            return View("AnfragenTabelleAdmin", _ticketsystemRepository.GetAll());
+            return View("AnfragenTabelleAdmin", anfrage);
         }
     }
 }

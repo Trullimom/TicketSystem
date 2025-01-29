@@ -1,25 +1,4 @@
-﻿@* @{
-	Layout = "_Eingeloggt";
-}
-@model MitarbeiterDaten
-
-<div class="d-flex justify-content-center align-items-center" style="min-height: 20vh;">
-	<form asp-controller="Admin" asp-action="Mitarbeiter">
-
-		<div class="form-group">
-
-			<select asp-for="@Model.Nachname">
-				@foreach (var m in MitarbeiterListe.ListMitarbeiter)
-				{
-					<option value="@m.Nachname">@m.Nachname</option>
-				}
-			</select>
-
-		</div>
-		<button type="submit" class="btn btn-primary mt-3">Bestätigen</button>
-	</form>
-</div> *@
-
+﻿
 @{
     Layout = "_Eingeloggt";
 }
