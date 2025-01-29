@@ -62,8 +62,11 @@
                     <td>@anfrage.Nachricht</td>
                     <td class="text-center align-middle p-2">
                         <div class="d-flex flex-column align-items-center justify-content-center">
-                            <span>@anfrage.Mitarbeiter</span>
-                            <a asp-controller="Admin" asp-action="Mitarbeiter" asp-route-Id="@anfrage.Id" value="" class="mt-2">Mitarbeiter hinzufügen</a>
+                            @if(anfrage.Mitarbeiter == null){
+                                <a asp-controller="Admin" asp-action="Mitarbeiter" asp-route-Id="@anfrage.Id" value="" class="mt-2">Mitarbeiter hinzufügen</a>
+                            }else{
+                                <span>@anfrage.Mitarbeiter</span>
+                            }
                         </div>
                     </td>
                     <td class="text-center">
