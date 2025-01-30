@@ -56,10 +56,14 @@ button.accept-policy[b-zowia4ng2y] {
     line-height: inherit;
 }
 
-.footer[b-zowia4ng2y] {
+footer[b-zowia4ng2y] {
     position: absolute;
     bottom: 0;
     width: 100%;
     white-space: nowrap;
     line-height: 60px;
+    background-color: white;
+}
+.footer[b-zowia4ng2y]{
+    background-color: white;
 }
