@@ -106,7 +106,7 @@ namespace TicketSystem.Controllers
 
                 _ticketsystemRepository.Update(anfrage);
             }
-            return View("Anfragentabelle", mitarbeiter);
+            return View("Anfragentabelle", anfrage);
         }
 
         [HttpGet]
