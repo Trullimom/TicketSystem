@@ -26,7 +26,11 @@ namespace TicketSystem.Controllers
             return View();
         }
 
-    
+        public IActionResult Login()
+        {
+            return View();
+        }
+
         public IActionResult AnfragentabelleAdmin()
         {
             Anfrage anfrage = new Anfrage();
