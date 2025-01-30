@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "_Eingeloggt";
+    Layout = "_EingeloggtMitarbeiter";
 }
 
 @model Anfrage
@@ -75,7 +75,7 @@
 <div class="d-flex justify-content-center">
     <div style="min-width: 80vw;">
         <div class="d-flex">
-            <button class="btn btn-primary me-2"><a class="text-light" asp-action="Index">Home</a></button>
+            <button class="btn btn-primary me-2"><a class="text-light" asp-controller="Home"  asp-action="IndexEingeloggt">Home</a></button>
             <button class="btn btn-primary me-2"><a class="text-light" asp-controller="Home" asp-action="SortierteAnfragenTabelle">Nach Projekt sortieren</a></button>
             <button class="btn btn-primary me-2"><a class="text-light" asp-controller="Home" asp-action="SortierteAnfragenTabelleDatum">Nach Datum sortieren</a></button>
         </div>

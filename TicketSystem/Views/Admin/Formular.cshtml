@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "_Eingeloggt";
+    Layout = "_EingeloggtAdmin";
 }
 
 @model Anfrage
@@ -46,6 +46,6 @@
         <textarea asp-for="Nachricht" placeholder="Nachricht" class="form-control bg-light" rows="4" style="resize: vertical;"></textarea>
     </div>
 
-    <button type="submit" class="btn btn-secondary mt-3">Senden</button>
-    <button class="btn btn-secondary mt-3"><a asp-action="AnfragenTabelleAdmin">Zur Tabelle</a></button>
+    <button type="submit" class="btn btn-primary mt-3">Senden</button>
+    <button class="btn btn-primary mt-3"><a class="text-light" asp-action="AnfragenTabelleAdmin">Zurück zur Tabelle</a></button>
 </form>

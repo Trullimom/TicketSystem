@@ -30,6 +30,11 @@ namespace TicketSystem.Controllers
             return View();
         }
 
+        public IActionResult IndexEingeloggt()
+        {
+            return View();
+        }
+
         [HttpGet]
         public IActionResult Kontakt()
         {
@@ -82,7 +87,7 @@ namespace TicketSystem.Controllers
 
         public IActionResult AnfragenTabelle()
         {
-            return View(mitarbeiter);
+            return View(anfrage);
         }
 
         public IActionResult Erledigt(int id)
