@@ -71,7 +71,7 @@ namespace TicketSystem.Controllers
                     }
 
                 }
-                return RedirectToAction(view, controller, mitarbeiter);
+                return RedirectToAction(view, controller, anfrage);
             }
             else
             {
