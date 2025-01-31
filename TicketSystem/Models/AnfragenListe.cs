@@ -8,7 +8,7 @@ namespace TicketSystem.Models
         //public static List<Anfrage> anfragenListe { get; set; } = new List<Anfrage>();
 
         private readonly AnwendungsDbContext _context;  // Neue variabel von Datenbank
-
+        public static List<string> DistinctProjekt { get; set; } = new List<string>();
         public static List<Anfrage> anfragenListe = new List<Anfrage>
         {
             new Anfrage{ KundenName= "Kunde1", Ansprechpartner = "Max Mustermann", Email="mustermann@gmail.com", DeadLine =new DateTime(2025,01,23), Erledigt= false, Kommentar= "dringend" },
@@ -77,5 +77,28 @@ namespace TicketSystem.Models
             _context.LoginDaten.Add(m);
             _context.SaveChanges();
         }
+
+        public static List<string> UniqueProject()
+        {
+            for(int i = 0; i < anfragenListe.Count-1; i++)
+            {
+                for(int j = i+1; j < anfragenListe.Count; j++)
+                {
+                    if (anfragenListe[i].ProjektName == anfragenListe[j].ProjektName)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                 
+                }
+                DistinctProjekt.Add(anfragenListe[i].ProjektName);
+
+            }
+            return DistinctProjekt;
+        }
     }
 }
+

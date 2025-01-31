@@ -53,12 +53,14 @@ namespace TicketSystem.Controllers
         [HttpGet]
         public IActionResult AddTicket()
         {
+            AnfragenListe.UniqueProject();
             return View("Formular");
         }
         [HttpPost]
         public IActionResult AddTicket(Anfrage a)
         {
-            if(a.ProjektName == null)
+           
+            if (a.ProjektName == null)
             {
                 a.ProjektName = a.NeuesProjekt;
             }

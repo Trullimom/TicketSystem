@@ -10,9 +10,9 @@
         <label><strong>Projekt wählen:</strong></label>
         <select asp-for="@Model.ProjektName" class="form-select">
             <option value=" ">Wählen</option>
-            @foreach (var project in AnfragenListe.anfragenListe)
+            @foreach (var projectName in AnfragenListe.DistinctProjekt)
             {
-                <option value="@project.ProjektName">@project.ProjektName</option>
+                <option value="@projectName">@projectName</option>
             }
         </select>
         <label><strong>Neues Projekt:</strong></label>
