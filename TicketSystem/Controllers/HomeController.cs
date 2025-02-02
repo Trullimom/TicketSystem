@@ -60,6 +60,8 @@ namespace TicketSystem.Controllers
                 //m.KommentierZeit = MitarbeiterListe.GetKommentarZeit(m);
                 mitarbeiter = m;
                 mitarbeiter.IstEingeloggt = true;
+                m.Vorname = MitarbeiterListe.GetVornameLogin(m);
+                anfrage.EingeloggterUser = m.Vorname;
                 string view = _loginDatenRepository.CheckRolle(m);
                 string controller = "";
                 if (!ModelState.IsValid)

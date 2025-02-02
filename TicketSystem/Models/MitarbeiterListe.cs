@@ -57,6 +57,20 @@ namespace TicketSystem.Models
             }
             return name;
         }
+
+        public static string GetVornameLogin(MitarbeiterDaten m)
+        {
+            string name = "";
+            foreach (var md in ListMitarbeiter)
+            {
+                if (m.UserName == md.UserName)
+                {
+                    name = md.Vorname;
+                    break;
+                }
+            }
+            return name;
+        }
         public string CheckRolle(MitarbeiterDaten m)
         {
             if (m.UserName.StartsWith("admin"))

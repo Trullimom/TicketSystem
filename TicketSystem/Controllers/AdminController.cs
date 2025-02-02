@@ -31,10 +31,10 @@ namespace TicketSystem.Controllers
             return View();
         }
 
-        public IActionResult AnfragentabelleAdmin()
+        public IActionResult AnfragentabelleAdmin(Anfrage a)
         {
-            Anfrage anfrage = new Anfrage();
-            return View(anfrage);
+            
+            return View(a);
         }
 
         public IActionResult SortierteAnfragenTabelle()
