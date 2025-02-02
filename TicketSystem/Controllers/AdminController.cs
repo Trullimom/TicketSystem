@@ -51,13 +51,14 @@ namespace TicketSystem.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddTicket()
+        public IActionResult AddTicket(Anfrage a)
         {
-            AnfragenListe.UniqueProject();
-            return View("Formular");
+            a.Datum = DateTime.Today;
+            AnfragenListe.anfragenListe = _ticketsystemRepository.GetAll();
+            return View("Formular", a);
         }
         [HttpPost]
-        public IActionResult AddTicket(Anfrage a)
+        public IActionResult AddTicket(Anfrage a, int x)
         {
            
             if (a.ProjektName == null)

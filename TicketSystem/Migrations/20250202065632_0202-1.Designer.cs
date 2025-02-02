@@ -12,8 +12,8 @@ using TicketSystem.Models.Data;
 namespace TicketSystem.Migrations
 {
     [DbContext(typeof(AnwendungsDbContext))]
-    [Migration("20250129092710_3")]
-    partial class _3
+    [Migration("20250202065632_0202-1")]
+    partial class _02021
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,7 +36,7 @@ namespace TicketSystem.Migrations
                     b.Property<string>("Ansprechpartner")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("Datum")
+                    b.Property<DateTime>("Datum")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DeadLine")
@@ -66,10 +66,17 @@ namespace TicketSystem.Migrations
                     b.Property<string>("Nachricht")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("NeuesProjekt")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ProjektName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.PrimitiveCollection<string>("TicketMitarbeiterListe")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -92,7 +99,6 @@ namespace TicketSystem.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Nachname")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Passwort")
@@ -116,7 +122,6 @@ namespace TicketSystem.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Vorname")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

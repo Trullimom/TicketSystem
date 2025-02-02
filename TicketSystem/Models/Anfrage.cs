@@ -11,9 +11,9 @@
         public string? Telefon { get; set; }
         public string? Nachricht { get; set; }
         public string? Ansprechpartner { get; set; }
-        public DateTime? Datum { get; set; }
+        public DateTime Datum { get; set; } = DateTime.Now;
         public bool Erledigt { get; set; } = false;
-        public DateTime DeadLine { get; set; }
+        public DateTime DeadLine { get; set; } = DateTime.Today;
         public string? Kommentar { get; set; }
         public string? Mitarbeiter { get; set; }
         public string? EingeloggterUser { get; set; }

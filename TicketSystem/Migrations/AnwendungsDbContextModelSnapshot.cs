@@ -33,7 +33,7 @@ namespace TicketSystem.Migrations
                     b.Property<string>("Ansprechpartner")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("Datum")
+                    b.Property<DateTime>("Datum")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DeadLine")
