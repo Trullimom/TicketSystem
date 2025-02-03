@@ -75,7 +75,7 @@
                         <div class="text-start">
                             Kommentar: @anfrage.Kommentar <br />
                             Erstellt am: @anfrage.KommentarZeit <br />
-                            Von: @anfrage.EingeloggterUser
+                            Von: @Anfrage.EingeloggterUser
                         </div>
                     </td>
                     <td class="text-center align-middle">
@@ -96,7 +96,7 @@
 <div class="d-flex justify-content-center">
     <div style="min-width: 80vw;">
         <div class="d-flex">
-            <button class="btn btn-primary me-2"><a class="text-light" asp-action="Index">Home</a></button>
+            <button class="btn btn-primary me-2"><a class="text-light" asp-controller="Admin" asp-action="Index">Home</a></button>
             <button class="btn btn-primary me-2"><a class="text-light" asp-controller="Admin" asp-action="MitarbeiterTabelle">MA Tabelle</a></button>
             <button class="btn btn-primary me-2"><a class="text-light" asp-controller="Admin" asp-action="AddTicket">Anfrage Hinzufügen</a></button>
             <button class="btn btn-primary me-2"><a class="text-light" asp-controller="Admin" asp-action="SortierteAnfragenTabelle">Nach Projekt sortieren</a></button>

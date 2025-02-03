@@ -61,7 +61,7 @@ namespace TicketSystem.Controllers
                 mitarbeiter = m;
                 mitarbeiter.IstEingeloggt = true;
                 m.Vorname = MitarbeiterListe.GetVornameLogin(m);
-                anfrage.EingeloggterUser = m.Vorname;
+                Anfrage.EingeloggterUser = m.Vorname;
                 string view = _loginDatenRepository.CheckRolle(m);
                 string controller = "";
                 if (!ModelState.IsValid)
@@ -122,7 +122,7 @@ namespace TicketSystem.Controllers
         {
             Anfrage anfrage = _ticketsystemRepository.GetAll().Find(x => x.Id == Id);
             anfrage.Kommentar = kommentar;
-            anfrage.EingeloggterUser = mitarbeiter.VollerName;
+            Anfrage.EingeloggterUser = mitarbeiter.VollerName;
             anfrage.KommentarZeit = DateTime.Now;
             _ticketsystemRepository.Update(anfrage);
             return View(anfrage);

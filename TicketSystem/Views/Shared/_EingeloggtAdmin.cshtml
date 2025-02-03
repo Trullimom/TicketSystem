@@ -21,7 +21,7 @@
 				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
 					<ul class="navbar-nav flex-grow-1">
 						<li class="nav-item">
-							<a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Home</a>
+							<a class="nav-link text-dark" asp-controller="Admin" asp-action="Index">Home</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="AddTicket">Ticket erstellen</a>
@@ -30,7 +30,7 @@
 							<a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="AnfragenTabelleAdmin">Zu den Tickets</a>
 						</li>
 						<li class="nav-item m-lg-auto"></li>
-						Hallo, @Model.EingeloggterUser
+						Hallo, @Anfrage.EingeloggterUser
 						<center text-center><a id="login" class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login" style="text-align: center;">Logout</a></center>
 						</li>
 					</ul>

@@ -9,9 +9,9 @@ namespace TicketSystem.Controllers
         private readonly ILogger<HomeController> _logger;
 
         private ITicketsystemRepository _ticketsystemRepository;
-        //MitarbeiterDaten mitarbeiterDaten = new MitarbeiterDaten();
+        MitarbeiterDaten mitarbeiterDaten = new MitarbeiterDaten();
         private ILoginDatenRepository _loginDatenRepository;
-        private static MitarbeiterDaten mitarbeiter = new MitarbeiterDaten();
+
         public static Anfrage anfrage = new Anfrage();
         public AdminController(ILogger<HomeController> logger, ITicketsystemRepository tsRepo, ILoginDatenRepository ldRepo)
         {
@@ -20,9 +20,11 @@ namespace TicketSystem.Controllers
             _loginDatenRepository = ldRepo;
         }
 
+     
 
         public IActionResult Index()
         {
+
             return View();
         }
 
@@ -101,7 +103,7 @@ namespace TicketSystem.Controllers
         {
             Anfrage anfrage = _ticketsystemRepository.GetAll().Find(x => x.Id == Id);
             anfrage.Kommentar = kommentar;
-            anfrage.EingeloggterUser = HomeController.mitarbeiter.VollerName;
+            Anfrage.EingeloggterUser = HomeController.mitarbeiter.VollerName;
             anfrage.KommentarZeit = DateTime.Now;
             _ticketsystemRepository.Update(anfrage);
             return View(anfrage);
