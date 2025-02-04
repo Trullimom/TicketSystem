@@ -26,10 +26,19 @@ namespace TicketSystem.Models
         {
             return _context.AnfrageDaten.ToList();
         }
-
+        public static List<string> GetProjekteNamen()
+        {
+           
+            var projektListe = (from c in anfragenListe
+                            select c.ProjektName.Trim().Replace(" ", ""))
+                .Distinct() 
+                .OrderBy(x => x).OrderBy(x=>x.Length);
+            var list = projektListe.ToList();
+            return list;
+        }
         public List<Anfrage> SortByName()
         {
-            List<Anfrage> tempList = _context.AnfrageDaten.OrderBy(a => a.KundenName).ToList();
+            List<Anfrage> tempList = _context.AnfrageDaten.OrderBy(a => a.ProjektName).ToList();
             anfragenListe = tempList;
             return tempList;
         }

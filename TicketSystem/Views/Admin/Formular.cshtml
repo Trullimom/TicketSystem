@@ -10,7 +10,7 @@
         <label><strong>Projekt wählen:</strong></label>
         <select asp-for="@Model.ProjektName" class="form-select">
             <option value=" ">Wählen</option>
-            @foreach (var projectName in AnfragenListe.anfragenListe.OrderBy(a => a.ProjektName).Select(a => a.ProjektName).Distinct())
+            @foreach (var projectName in AnfragenListe.GetProjekteNamen())
             {
                 <option value="@projectName">@projectName</option>
             }
