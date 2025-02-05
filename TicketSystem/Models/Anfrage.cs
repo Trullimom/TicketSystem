@@ -17,7 +17,7 @@
         public string? Kommentar { get; set; }
         public string? Mitarbeiter { get; set; }
         public static string? EingeloggterUser { get; set; }
-
+        public string KommentarUser { get; set; }
         public DateTime? KommentarZeit { get; set; }
 
         public List<string> TicketMitarbeiterListe { get; set; } = new List<string>();

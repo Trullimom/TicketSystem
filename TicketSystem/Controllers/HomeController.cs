@@ -122,6 +122,7 @@ namespace TicketSystem.Controllers
         {
             Anfrage anfrage = _ticketsystemRepository.GetAll().Find(x => x.Id == Id);
             anfrage.Kommentar = kommentar;
+            anfrage.KommentarUser = mitarbeiter.VollerName;
             Anfrage.EingeloggterUser = mitarbeiter.VollerName;
             anfrage.KommentarZeit = DateTime.Now;
             _ticketsystemRepository.Update(anfrage);
