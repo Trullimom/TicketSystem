@@ -55,6 +55,7 @@ namespace TicketSystem.Controllers
         [HttpGet]
         public IActionResult AddTicket(Anfrage a)
         {
+            a.ProjektName = "";
             a.Datum = DateTime.Today;
             AnfragenListe.anfragenListe = _ticketsystemRepository.GetAll();
             return View("Formular", a);
