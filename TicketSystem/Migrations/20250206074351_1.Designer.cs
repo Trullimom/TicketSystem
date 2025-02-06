@@ -12,7 +12,7 @@ using TicketSystem.Models.Data;
 namespace TicketSystem.Migrations
 {
     [DbContext(typeof(AnwendungsDbContext))]
-    [Migration("20250203071729_1")]
+    [Migration("20250206074351_1")]
     partial class _1
     {
         /// <inheritdoc />
@@ -42,9 +42,6 @@ namespace TicketSystem.Migrations
                     b.Property<DateTime>("DeadLine")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("EingeloggterUser")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -52,6 +49,9 @@ namespace TicketSystem.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Kommentar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("KommentarUser")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("KommentarZeit")

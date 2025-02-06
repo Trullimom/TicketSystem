@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TicketSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class _02021 : Migration
+    public partial class _1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -29,7 +29,7 @@ namespace TicketSystem.Migrations
                     DeadLine = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Kommentar = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Mitarbeiter = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EingeloggterUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    KommentarUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     KommentarZeit = table.Column<DateTime>(type: "datetime2", nullable: true),
                     TicketMitarbeiterListe = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },

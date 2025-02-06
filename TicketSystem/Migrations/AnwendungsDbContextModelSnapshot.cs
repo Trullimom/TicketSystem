@@ -49,7 +49,6 @@ namespace TicketSystem.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("KommentarUser")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("KommentarZeit")
